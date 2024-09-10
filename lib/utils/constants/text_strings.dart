@@ -7,8 +7,8 @@ class SiajTexts {
   static const String skip = "Skip";
   static const String done = "Done";
   static const String submit = "Submit";
-  static const String appName = "T-Store";
-  static const String tContinue = "Continue";
+  static const String appName = "Siaj-Store";
+  static const String siajContinue = "Continue";
 
 
   // -- OnBoarding Texts
