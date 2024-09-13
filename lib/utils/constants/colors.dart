@@ -39,8 +39,8 @@ class SiajColors {
   static Color buttonDisabled = const Color(0xFFC4C4C4);
 
   // Border Colors
-  static Color borderPrimary = const Color(0xFFD9D9D9);
-  static Color borderSecondary = const Color(0xFFE6E6E6);
+  static const Color borderPrimary =  Color(0xFFD9D9D9);
+  static const Color borderSecondary = Color(0xFFE6E6E6);
 
   // Error and validation colors
   static const Color error = Color(0xFFD32F2F);

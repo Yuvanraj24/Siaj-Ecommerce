@@ -1,20 +1,17 @@
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:siaj_ecommerce/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:siaj_ecommerce/common/widgets/custom_shapes/containers/search_container.dart';
-import 'package:siaj_ecommerce/common/widgets/image_text_widgets/vertical_image_text.dart';
-import 'package:siaj_ecommerce/common/widgets/images/siaj_rounded_image.dart';
+import 'package:siaj_ecommerce/common/widgets/layouts/grid_layout.dart';
+import 'package:siaj_ecommerce/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:siaj_ecommerce/common/widgets/texts/section_heading.dart';
 
 import 'package:siaj_ecommerce/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:siaj_ecommerce/features/shop/screens/home/widgets/home_categories.dart';
+import 'package:siaj_ecommerce/features/shop/screens/home/widgets/promo_slider.dart';
 import 'package:siaj_ecommerce/utils/constants/colors.dart';
 import 'package:siaj_ecommerce/utils/constants/image_strings.dart';
 import 'package:siaj_ecommerce/utils/constants/sizes.dart';
-
-import 'package:siaj_ecommerce/utils/device/device_utility.dart';
-import 'package:siaj_ecommerce/utils/helper/helper_function.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -62,30 +59,31 @@ class HomeScreen extends StatelessWidget {
 
           /// Body
           Padding(
-            padding: const EdgeInsets.all(SiajSizes.defaultSpace),
+            padding: EdgeInsets.all(SiajSizes.defaultSpace),
             child: Column(
               children: [
-                CarouselSlider(
-                  options: CarouselOptions(
-                    viewportFraction: 1,
+                /// Promo Slider
+                const SiajPromoSlider(banners: [
+                  SiajImages.promoBanner1,
+                  SiajImages.promoBanner2,
+                  SiajImages.promoBanner3,
+                ]),
+                const SizedBox(height: SiajSizes.spaceBtwSections),
 
-                  ),
-                  items: const [
-                    SiajRoundedImage(imageUrl: SiajImages.promoBanner1),
-                    SiajRoundedImage(imageUrl: SiajImages.promoBanner2),
-                    SiajRoundedImage(imageUrl: SiajImages.promoBanner3)
-                  ],
+                /// Heading
+                 SiajSectionHeading(title: "Popular Products", onPressed: (){},),
+                const SizedBox(height: SiajSizes.spaceBtwItems),
+
+                /// Popular Products
+                SiajGridLayout(
+                  itemCount: 5,
+                  itemBuilder: (_, index) => const SiajProductCardVertical(),
                 ),
 
-                SizedBox(height: SiajSizes.spaceBtwItems),
-
-              ],
-            ),
+              ]),
           )
         ]),
       ),
     );
   }
 }
-
-

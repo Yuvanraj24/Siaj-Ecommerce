@@ -5,10 +5,11 @@ import 'package:siaj_ecommerce/utils/constants/colors.dart';
 class SiajCartCounterIcon extends StatelessWidget {
   const SiajCartCounterIcon({
     super.key,
-    required this.iconColor, required this.onPressed,
+     this.iconColor,
+    required this.onPressed,
   });
 
-  final Color iconColor;
+  final Color? iconColor;
   final VoidCallback onPressed;
 
   @override

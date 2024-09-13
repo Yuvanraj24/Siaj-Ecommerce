@@ -6,7 +6,7 @@ class SiajSectionHeading extends StatelessWidget {
     required this.title,
     this.buttonTitle = "View all",
     this.textColor,
-    this.showActionButton = false,
+    this.showActionButton = true,
     this.onPressed,
   });
 
@@ -18,6 +18,7 @@ class SiajSectionHeading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
           title,
