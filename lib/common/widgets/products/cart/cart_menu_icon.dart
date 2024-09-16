@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:siaj_ecommerce/utils/constants/colors.dart';
+import 'package:siaj_ecommerce/utils/helper/helper_function.dart';
 
 class SiajCartCounterIcon extends StatelessWidget {
   const SiajCartCounterIcon({
@@ -14,21 +15,22 @@ class SiajCartCounterIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool darkMode = SiajHelperFunctions.isDarkMode(context);
     return Stack(
       children: [
-        IconButton(onPressed: onPressed, icon:  Icon(Iconsax.shopping_bag,color: iconColor)),
+        IconButton(onPressed: onPressed, icon:  Icon(Iconsax.shopping_bag,color: darkMode ? SiajColors.light : SiajColors.dark)),
         Positioned(
           right: 0,
           child: Container(
             width: 18,
             height: 18,
             decoration: BoxDecoration(
-                color: SiajColors.black.withOpacity(0.5),
+                color: darkMode ? SiajColors.light : SiajColors.dark.withOpacity(0.9),
                 borderRadius: BorderRadius.circular(100)
             ),
             child:  Center(
               child: Text('2',
-                style: Theme.of(context).textTheme.labelLarge!.apply(color: SiajColors.white, fontSizeFactor: 0.8),
+                style: Theme.of(context).textTheme.labelLarge!.apply(color: darkMode ? SiajColors.dark : SiajColors.light, fontSizeFactor: 0.8),
               ),
             ),
           ),

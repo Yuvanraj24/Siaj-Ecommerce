@@ -6,7 +6,9 @@ import 'package:siaj_ecommerce/common/widgets/icons/siaj_circular_icon.dart';
 import 'package:siaj_ecommerce/common/widgets/images/siaj_rounded_image.dart';
 import 'package:siaj_ecommerce/common/widgets/texts/product_price_text.dart';
 import 'package:siaj_ecommerce/common/widgets/texts/product_title_text.dart';
+import 'package:siaj_ecommerce/common/widgets/texts/siaj_brand_title_text_with_verified_icon.dart';
 import 'package:siaj_ecommerce/utils/constants/colors.dart';
+import 'package:siaj_ecommerce/utils/constants/enums.dart';
 import 'package:siaj_ecommerce/utils/constants/image_strings.dart';
 import 'package:siaj_ecommerce/utils/constants/sizes.dart';
 import 'package:siaj_ecommerce/utils/helper/helper_function.dart';
@@ -77,19 +79,7 @@ class SiajProductCardVertical extends StatelessWidget {
                 const SiajProductTitleText(
                     title: "Green Nike Air Shoes", smallSize: true),
                 const SizedBox(height: SiajSizes.spaceBtwItems / 2),
-                Row(
-                  children: [
-                    Text(
-                      "Nike",
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 1,
-                      style: Theme.of(context).textTheme.labelMedium,
-                    ),
-                    const SizedBox(width: SiajSizes.xs),
-                    const Icon(Iconsax.verify5,
-                        color: SiajColors.primaryColor, size: SiajSizes.iconXs)
-                  ],
-                )
+                SiajBrandTitleWithVerifiedIcon(title: "Nike",)
               ]),
             ),
             const Spacer(),
@@ -125,5 +115,6 @@ class SiajProductCardVertical extends StatelessWidget {
     );
   }
 }
+
 
 

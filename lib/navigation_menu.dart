@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:siaj_ecommerce/features/shop/screens/home/home.dart';
+import 'package:siaj_ecommerce/features/shop/screens/store/store.dart';
 import 'package:siaj_ecommerce/utils/constants/colors.dart';
 import 'package:siaj_ecommerce/utils/helper/helper_function.dart';
 
@@ -40,10 +41,8 @@ class NavigationController extends GetxController {
   final RxInt selectedIndex = 0.obs;
 
   final screens = [
-    HomeScreen(),
-    Container(
-      child: Center(child: Text("1"),),
-    ),
+    const HomeScreen(),
+    const Store(),
     Container(
       child: Center(child: Text("2"),),
     ),
