@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:siaj_ecommerce/features/personalization/screens/settings/settings.dart';
 import 'package:siaj_ecommerce/features/shop/screens/home/home.dart';
 import 'package:siaj_ecommerce/features/shop/screens/store/store.dart';
+import 'package:siaj_ecommerce/features/shop/screens/wishlist/wishlist.dart';
 import 'package:siaj_ecommerce/utils/constants/colors.dart';
 import 'package:siaj_ecommerce/utils/helper/helper_function.dart';
 
@@ -43,12 +45,8 @@ class NavigationController extends GetxController {
   final screens = [
     const HomeScreen(),
     const Store(),
-    Container(
-      child: Center(child: Text("2"),),
-    ),
-    Container(
-      child: Center(child: Text("3"),),
-    ),
+   const FavouriteScreen(),
+    const SettingsScreen()
   ];
 
 }

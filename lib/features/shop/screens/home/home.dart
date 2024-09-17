@@ -22,7 +22,7 @@ class HomeScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(children: [
           /// Header
-          SiajPrimaryHeaderContainer(
+          const SiajPrimaryHeaderContainer(
               child: Column(
             children: [
               /// Appbar
@@ -51,36 +51,39 @@ class HomeScreen extends StatelessWidget {
                   ),
 
                   /// Categories list
-                  SiajHomeCategories()
+                  SiajHomeCategories(),
                 ]),
-              )
+              ),
+
+              SizedBox(height: SiajSizes.spaceBtwSections)
             ],
           )),
 
           /// Body
           Padding(
-            padding: EdgeInsets.all(SiajSizes.defaultSpace),
-            child: Column(
-              children: [
-                /// Promo Slider
-                const SiajPromoSlider(banners: [
-                  SiajImages.promoBanner1,
-                  SiajImages.promoBanner2,
-                  SiajImages.promoBanner3,
-                ]),
-                const SizedBox(height: SiajSizes.spaceBtwSections),
-
-                /// Heading
-                 SiajSectionHeading(title: "Popular Products", onPressed: (){},),
-                const SizedBox(height: SiajSizes.spaceBtwItems),
-
-                /// Popular Products
-                SiajGridLayout(
-                  itemCount: 5,
-                  itemBuilder: (_, index) => const SiajProductCardVertical(),
-                ),
-
+            padding: const EdgeInsets.all(SiajSizes.defaultSpace),
+            child: Column(children: [
+              /// Promo Slider
+              const SiajPromoSlider(banners: [
+                SiajImages.promoBanner1,
+                SiajImages.promoBanner2,
+                SiajImages.promoBanner3,
               ]),
+              const SizedBox(height: SiajSizes.spaceBtwSections),
+
+              /// Heading
+              SiajSectionHeading(
+                title: "Popular Products",
+                onPressed: () {},
+              ),
+              const SizedBox(height: SiajSizes.spaceBtwItems),
+
+              /// Popular Products
+              SiajGridLayout(
+                itemCount: 5,
+                itemBuilder: (_, index) => const SiajProductCardVertical(),
+              ),
+            ]),
           )
         ]),
       ),

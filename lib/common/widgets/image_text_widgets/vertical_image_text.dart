@@ -9,7 +9,7 @@ class SiajVerticalImageText extends StatelessWidget {
     required this.image,
     required this.title,
     this.textColor = SiajColors.white,
-    this.backgroundColor = SiajColors.white,
+    this.backgroundColor,
     this.onTap,
   });
 

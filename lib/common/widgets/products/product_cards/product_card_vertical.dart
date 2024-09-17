@@ -8,7 +8,6 @@ import 'package:siaj_ecommerce/common/widgets/texts/product_price_text.dart';
 import 'package:siaj_ecommerce/common/widgets/texts/product_title_text.dart';
 import 'package:siaj_ecommerce/common/widgets/texts/siaj_brand_title_text_with_verified_icon.dart';
 import 'package:siaj_ecommerce/utils/constants/colors.dart';
-import 'package:siaj_ecommerce/utils/constants/enums.dart';
 import 'package:siaj_ecommerce/utils/constants/image_strings.dart';
 import 'package:siaj_ecommerce/utils/constants/sizes.dart';
 import 'package:siaj_ecommerce/utils/helper/helper_function.dart';
@@ -37,7 +36,7 @@ class SiajProductCardVertical extends StatelessWidget {
               backgroundColor: darkMode ? SiajColors.dark : SiajColors.light,
               child: Stack(
                 children: [
-                  /// Thumnail Image
+                  /// Thumbnail Image
                   const SiajRoundedImage(
                       imageUrl: SiajImages.productImage1, applyImageRadius: true),
       
@@ -72,13 +71,13 @@ class SiajProductCardVertical extends StatelessWidget {
             const SizedBox(height: SiajSizes.spaceBtwItems / 2),
       
             /// Details
-            Padding(
-              padding: const EdgeInsets.only(left: SiajSizes.sm),
+            const Padding(
+              padding: EdgeInsets.only(left: SiajSizes.sm),
               child:
                   Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                const SiajProductTitleText(
+                SiajProductTitleText(
                     title: "Green Nike Air Shoes", smallSize: true),
-                const SizedBox(height: SiajSizes.spaceBtwItems / 2),
+                SizedBox(height: SiajSizes.spaceBtwItems / 2),
                 SiajBrandTitleWithVerifiedIcon(title: "Nike",)
               ]),
             ),
