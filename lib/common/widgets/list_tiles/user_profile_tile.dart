@@ -6,8 +6,10 @@ import 'package:siaj_ecommerce/utils/constants/image_strings.dart';
 
 class SiajUserProfileTile extends StatelessWidget {
   const SiajUserProfileTile({
-    super.key,
+    super.key, this.onPress,
   });
+
+  final VoidCallback? onPress;
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +26,8 @@ class SiajUserProfileTile extends StatelessWidget {
       subtitle:  Text("support@siajdynamicinnovations.in",
         style: Theme.of(context).textTheme.bodyMedium!.apply(color: SiajColors.white),
       ),
-      trailing: IconButton(onPressed: () {
-
-      }, icon: const Icon(Iconsax.edit, color: SiajColors.white)),
+      trailing: IconButton(onPressed: onPress,
+          icon: const Icon(Iconsax.edit, color: SiajColors.white)),
     );
   }
 }

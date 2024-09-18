@@ -6,8 +6,9 @@ import 'package:siaj_ecommerce/common/widgets/custom_shapes/containers/primary_h
 import 'package:siaj_ecommerce/common/widgets/icons/siaj_circular_icon.dart';
 import 'package:siaj_ecommerce/common/widgets/images/siaj_circlar_image.dart';
 import 'package:siaj_ecommerce/common/widgets/list_tiles/settings_menu_tile.dart';
-import 'package:siaj_ecommerce/common/widgets/list_tiles/user_profile.dart';
+import 'package:siaj_ecommerce/common/widgets/list_tiles/user_profile_tile.dart';
 import 'package:siaj_ecommerce/common/widgets/texts/section_heading.dart';
+import 'package:siaj_ecommerce/features/personalization/screens/profile/profile.dart';
 import 'package:siaj_ecommerce/utils/constants/colors.dart';
 import 'package:siaj_ecommerce/utils/constants/image_strings.dart';
 import 'package:siaj_ecommerce/utils/constants/sizes.dart';
@@ -36,7 +37,7 @@ class SettingsScreen extends StatelessWidget {
                 const SizedBox(height: SiajSizes.spaceBtwSections),
 
                 /// User Profile Card
-                const SiajUserProfileTile(),
+                 SiajUserProfileTile(onPress: () => Get.to(() => const ProfileScreen())),
 
                 const SizedBox(height: SiajSizes.spaceBtwSections)
               ],
@@ -44,49 +45,49 @@ class SettingsScreen extends StatelessWidget {
 
             /// Body
             Padding(
-              padding: EdgeInsets.all(SiajSizes.defaultSpace),
+              padding: const EdgeInsets.all(SiajSizes.defaultSpace),
               child: Column(
                 children: [
                   /// Account Setting
-                  SiajSectionHeading(title: "Account Settings"),
-                  SizedBox(height: SiajSizes.spaceBtwItems),
+                  const SiajSectionHeading(title: "Account Settings"),
+                  const SizedBox(height: SiajSizes.spaceBtwItems),
 
-                  SiajSettingsMenuTile(
+                  const SiajSettingsMenuTile(
                       icon: Iconsax.safe_home,
                       title: "My Addresses",
                       subTitle: "Set shopping delivery address"),
-                  SiajSettingsMenuTile(
+                  const SiajSettingsMenuTile(
                       icon: Iconsax.shopping_cart,
                       title: "My Cart",
                       subTitle: "Add, remove products and move to checkout"),
-                  SiajSettingsMenuTile(
+                  const SiajSettingsMenuTile(
                       icon: Iconsax.bag_tick,
                       title: "My Orders",
                       subTitle: "In-progress and Completed Orders"),
-                  SiajSettingsMenuTile(
+                  const SiajSettingsMenuTile(
                       icon: Iconsax.bank,
                       title: "Bank Account",
                       subTitle: "Withdraw balance to registered bank account"),
-                  SiajSettingsMenuTile(
+                  const SiajSettingsMenuTile(
                       icon: Iconsax.discount_shape,
                       title: "My Coupons",
                       subTitle: "List of all the discounted coupons"),
-                  SiajSettingsMenuTile(
+                  const SiajSettingsMenuTile(
                       icon: Iconsax.notification,
                       title: "Notifications",
                       subTitle: "Set any kind of notification message"),
-                  SiajSettingsMenuTile(
+                  const SiajSettingsMenuTile(
                       icon: Iconsax.security_card,
                       title: "Account Privacy",
                       subTitle: "Manage data usage and connected accounts"),
 
                   /// App Settings
-                  SizedBox(height: SiajSizes.spaceBtwSections),
+                  const SizedBox(height: SiajSizes.spaceBtwSections),
 
-                  SiajSectionHeading(
+                  const SiajSectionHeading(
                       title: "App Settings", showActionButton: false),
-                  SizedBox(height: SiajSizes.spaceBtwItems),
-                  SiajSettingsMenuTile(
+                  const SizedBox(height: SiajSizes.spaceBtwItems),
+                  const SiajSettingsMenuTile(
                       icon: Iconsax.document_upload,
                       title: "Load Data",
                       subTitle: "Upload Data to your Cloud Firebase"),
