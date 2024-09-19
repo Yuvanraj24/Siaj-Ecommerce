@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:siaj_ecommerce/utils/constants/colors.dart';
 import 'package:siaj_ecommerce/utils/constants/sizes.dart';
 import 'package:siaj_ecommerce/utils/device/device_utility.dart';
+import 'package:siaj_ecommerce/utils/helper/helper_function.dart';
 
 class SiajAppBar extends StatelessWidget implements PreferredSizeWidget {
   const SiajAppBar(
@@ -21,6 +23,9 @@ class SiajAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final bool darkMode = SiajHelperFunctions.isDarkMode(context);
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: SiajSizes.md),
       child: AppBar(
@@ -28,8 +33,9 @@ class SiajAppBar extends StatelessWidget implements PreferredSizeWidget {
         leading: showBackArrow
             ? IconButton(
                 onPressed: () => Get.back(),
-                icon: const Icon(
+                icon:  Icon(
                   Iconsax.arrow_left,
+                  color: darkMode ? SiajColors.white : SiajColors.dark,
                 ))
             : leadingIcon != null
                 ? IconButton(
