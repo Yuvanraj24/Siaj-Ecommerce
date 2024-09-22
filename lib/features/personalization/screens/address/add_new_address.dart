@@ -89,9 +89,7 @@ class AddNewAddressScreen extends StatelessWidget {
                 child: ElevatedButton(onPressed: (){}, child: const Text("Save")),
                 )
 
-
-              ],
-            ),
+              ]),
           ),
         ),
       ),
