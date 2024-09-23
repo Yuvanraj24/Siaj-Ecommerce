@@ -20,6 +20,8 @@ class SiajProductCardVertical extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final darkMode = SiajHelperFunctions.isDarkMode(context);
+
+    /// Container with side paddings, color, edges, radius and shadow
     return GestureDetector(
       onTap: () => Get.to(()=> const ProductDetailScreen()),
       child: Container(
