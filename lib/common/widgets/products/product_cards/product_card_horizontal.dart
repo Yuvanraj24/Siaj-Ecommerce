@@ -69,9 +69,8 @@ class SiajProductCardHorizontal extends StatelessWidget {
                     top: 0,
                     right: 0,
                     child: SiajCircularIcon(
-                        icon: Iconsax.heart5, color: Colors.red)),
-              ],
-            ),
+                        icon: Iconsax.heart5, color: Colors.red))
+              ]),
           ),
 
           /// Details

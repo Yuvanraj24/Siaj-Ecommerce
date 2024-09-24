@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:siaj_ecommerce/common/widgets/appbar/appbar.dart';
 import 'package:siaj_ecommerce/common/widgets/brands/brand_card.dart';
 import 'package:siaj_ecommerce/common/widgets/layouts/grid_layout.dart';
+import 'package:siaj_ecommerce/common/widgets/products/sortable/sortable_products.dart';
 import 'package:siaj_ecommerce/common/widgets/texts/section_heading.dart';
+import 'package:siaj_ecommerce/features/shop/screens/brand/brand_products.dart';
 import 'package:siaj_ecommerce/utils/constants/sizes.dart';
 
 class AllBrandsScreen extends StatelessWidget {
@@ -27,10 +30,9 @@ class AllBrandsScreen extends StatelessWidget {
             SiajGridLayout(
                 itemCount: 10,
                 mainAxisExtent: 80,
-                itemBuilder: (_, index) => const SiajBrandCard(showBorder: true))
+                itemBuilder: (context, index) =>  SiajBrandCard(showBorder: true,onTap: () => Get.to(() => const BrandProducts())))
 
-          ],
-        ),
+          ]),
         ),
       ),
     );
