@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "318058925617",
+    "project_id": "let-s-buy-dee22",
+    "storage_bucket": "let-s-buy-dee22.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:318058925617:android:14fdb5fa0a9ebe8d50cf10",
+        "android_client_info": {
+          "package_name": "com.siaj_dynamic_innovations.siaj_ecommerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "318058925617-ahm25b89v0c2msii4dnafd9kvjgkm5mg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.siaj_dynamic_innovations.siaj_ecommerce",
+            "certificate_hash": "183fabfe73e5d0507849891322516a99dd42e191"
+          }
+        },
+        {
+          "client_id": "318058925617-ki29b90b4anpfohquud5r9o525k3sujj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4StwRPyGMWBR2uCGoi2WMjoSNaPnR_6Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "318058925617-ki29b90b4anpfohquud5r9o525k3sujj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "318058925617-8uo1v2v5rss5obf85e5oeu4lvbru9mkq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.siajdynamicinnovations.siajEcommerce"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
