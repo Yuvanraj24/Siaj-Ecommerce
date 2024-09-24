@@ -28,7 +28,7 @@ class UserReviewCard extends StatelessWidget {
                 Text("John Doe", style: Theme.of(context).textTheme.titleLarge)
               ]),
 
-            IconButton(onPressed: (){}, icon: Icon(Icons.more_vert))
+            IconButton(onPressed: (){}, icon:  const Icon(Icons.more_vert))
           ]),
 
         const SizedBox(height: SiajSizes.spaceBtwItems),
@@ -68,7 +68,7 @@ class UserReviewCard extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: SiajSizes.spaceBtwItems),
-                const ReadMoreText("The user interfance of the app is quite intuitive. I was able to navigate and make purchase seamlessly. Great job!",
+                const ReadMoreText("The user interface of the app is quite intuitive. I was able to navigate and make purchase seamlessly. Great job!",
                   trimLines: 2,
                   trimMode: TrimMode.Line,
                   trimExpandedText: " Show less",

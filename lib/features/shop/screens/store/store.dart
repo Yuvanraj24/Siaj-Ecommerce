@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:siaj_ecommerce/common/widgets/appbar/appbar.dart';
 import 'package:siaj_ecommerce/common/widgets/appbar/tabbar.dart';
 import 'package:siaj_ecommerce/common/widgets/brands/brand_card.dart';
@@ -10,6 +11,7 @@ import 'package:siaj_ecommerce/common/widgets/layouts/grid_layout.dart';
 import 'package:siaj_ecommerce/common/widgets/products/cart/cart_menu_icon.dart';
 import 'package:siaj_ecommerce/common/widgets/texts/section_heading.dart';
 import 'package:siaj_ecommerce/common/widgets/texts/siaj_brand_title_text_with_verified_icon.dart';
+import 'package:siaj_ecommerce/features/shop/screens/brand/all_brands.dart';
 import 'package:siaj_ecommerce/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:siaj_ecommerce/utils/constants/colors.dart';
 import 'package:siaj_ecommerce/utils/constants/enums.dart';
@@ -61,7 +63,7 @@ class Store extends StatelessWidget {
 
                         /// Featured Brands
                         SiajSectionHeading(
-                            title: "Featured Brands", onPressed: () {}),
+                            title: "Featured Brands", onPressed: () => Get.to(() => const AllBrandsScreen()),),
                         const SizedBox(height: SiajSizes.spaceBtwItems / 1.5),
 
                         /// Brands GRID
