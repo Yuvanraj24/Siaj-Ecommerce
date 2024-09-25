@@ -6,7 +6,7 @@ import 'package:siaj_ecommerce/features/shop/screens/home/home.dart';
 import 'package:siaj_ecommerce/features/shop/screens/store/store.dart';
 import 'package:siaj_ecommerce/features/shop/screens/wishlist/wishlist.dart';
 import 'package:siaj_ecommerce/utils/constants/colors.dart';
-import 'package:siaj_ecommerce/utils/helper/helper_function.dart';
+import 'package:siaj_ecommerce/utils/helpers/helper_function.dart';
 
 class NavigationMenu extends StatelessWidget {
   const NavigationMenu({super.key});

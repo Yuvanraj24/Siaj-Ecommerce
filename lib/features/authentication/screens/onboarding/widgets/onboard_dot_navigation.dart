@@ -3,7 +3,7 @@ import 'package:siaj_ecommerce/features/authentication/controllers/onboarding/on
 import 'package:siaj_ecommerce/utils/constants/colors.dart';
 import 'package:siaj_ecommerce/utils/constants/sizes.dart';
 import 'package:siaj_ecommerce/utils/device/device_utility.dart';
-import 'package:siaj_ecommerce/utils/helper/helper_function.dart';
+import 'package:siaj_ecommerce/utils/helpers/helper_function.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnBoardDotNavigation extends StatelessWidget {

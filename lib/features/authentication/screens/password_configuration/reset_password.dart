@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:siaj_ecommerce/utils/constants/image_strings.dart';
 import 'package:siaj_ecommerce/utils/constants/sizes.dart';
 import 'package:siaj_ecommerce/utils/constants/text_strings.dart';
-import 'package:siaj_ecommerce/utils/helper/helper_function.dart';
+import 'package:siaj_ecommerce/utils/helpers/helper_function.dart';
 
 class ResetPassword extends StatelessWidget {
   const ResetPassword({super.key});

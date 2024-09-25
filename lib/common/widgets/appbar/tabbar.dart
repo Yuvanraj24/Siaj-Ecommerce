@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:siaj_ecommerce/utils/constants/colors.dart';
 import 'package:siaj_ecommerce/utils/constants/sizes.dart';
 import 'package:siaj_ecommerce/utils/device/device_utility.dart';
-import 'package:siaj_ecommerce/utils/helper/helper_function.dart';
+import 'package:siaj_ecommerce/utils/helpers/helper_function.dart';
 
 class SiajTabBar extends StatelessWidget implements PreferredSizeWidget {
   const SiajTabBar({

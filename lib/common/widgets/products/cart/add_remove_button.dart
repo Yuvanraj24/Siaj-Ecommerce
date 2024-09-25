@@ -3,7 +3,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:siaj_ecommerce/common/widgets/icons/siaj_circular_icon.dart';
 import 'package:siaj_ecommerce/utils/constants/colors.dart';
 import 'package:siaj_ecommerce/utils/constants/sizes.dart';
-import 'package:siaj_ecommerce/utils/helper/helper_function.dart';
+import 'package:siaj_ecommerce/utils/helpers/helper_function.dart';
 
 class SiajProductQuantityWithAddRemoveButton extends StatelessWidget {
   const SiajProductQuantityWithAddRemoveButton({

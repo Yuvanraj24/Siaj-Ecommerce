@@ -5,7 +5,7 @@ import 'package:siaj_ecommerce/common/widgets/texts/siaj_brand_title_text_with_v
 import 'package:siaj_ecommerce/utils/constants/colors.dart';
 import 'package:siaj_ecommerce/utils/constants/image_strings.dart';
 import 'package:siaj_ecommerce/utils/constants/sizes.dart';
-import 'package:siaj_ecommerce/utils/helper/helper_function.dart';
+import 'package:siaj_ecommerce/utils/helpers/helper_function.dart';
 
 class SiajCartItem extends StatelessWidget {
   const SiajCartItem({

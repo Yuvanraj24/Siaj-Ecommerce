@@ -5,7 +5,7 @@ import 'package:siaj_ecommerce/common/widgets/texts/product_title_text.dart';
 import 'package:siaj_ecommerce/common/widgets/texts/section_heading.dart';
 import 'package:siaj_ecommerce/utils/constants/colors.dart';
 import 'package:siaj_ecommerce/utils/constants/sizes.dart';
-import 'package:siaj_ecommerce/utils/helper/helper_function.dart';
+import 'package:siaj_ecommerce/utils/helpers/helper_function.dart';
 
 class SiajProductAttributes extends StatelessWidget {
   const SiajProductAttributes({super.key});

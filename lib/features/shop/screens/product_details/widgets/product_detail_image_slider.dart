@@ -7,7 +7,7 @@ import 'package:siaj_ecommerce/common/widgets/images/siaj_rounded_image.dart';
 import 'package:siaj_ecommerce/utils/constants/colors.dart';
 import 'package:siaj_ecommerce/utils/constants/image_strings.dart';
 import 'package:siaj_ecommerce/utils/constants/sizes.dart';
-import 'package:siaj_ecommerce/utils/helper/helper_function.dart';
+import 'package:siaj_ecommerce/utils/helpers/helper_function.dart';
 
 class SiajProductImageSlider extends StatelessWidget {
   const SiajProductImageSlider({

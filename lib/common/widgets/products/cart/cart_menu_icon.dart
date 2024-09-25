@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:siaj_ecommerce/features/shop/screens/cart/cart.dart';
 import 'package:siaj_ecommerce/utils/constants/colors.dart';
-import 'package:siaj_ecommerce/utils/helper/helper_function.dart';
+import 'package:siaj_ecommerce/utils/helpers/helper_function.dart';
 
 class SiajCartCounterIcon extends StatelessWidget {
   const SiajCartCounterIcon({

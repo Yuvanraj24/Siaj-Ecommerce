@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:siaj_ecommerce/common/widgets/custom_shapes/containers/circular_container.dart';
 import 'package:siaj_ecommerce/utils/constants/colors.dart';
-import 'package:siaj_ecommerce/utils/helper/helper_function.dart';
+import 'package:siaj_ecommerce/utils/helpers/helper_function.dart';
 import 'package:siaj_ecommerce/utils/http/http_client.dart';
 
 class SiajChoiceChip extends StatelessWidget {

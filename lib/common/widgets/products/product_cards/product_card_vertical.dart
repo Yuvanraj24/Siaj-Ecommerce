@@ -12,7 +12,7 @@ import 'package:siaj_ecommerce/features/shop/screens/product_details/product_det
 import 'package:siaj_ecommerce/utils/constants/colors.dart';
 import 'package:siaj_ecommerce/utils/constants/image_strings.dart';
 import 'package:siaj_ecommerce/utils/constants/sizes.dart';
-import 'package:siaj_ecommerce/utils/helper/helper_function.dart';
+import 'package:siaj_ecommerce/utils/helpers/helper_function.dart';
 
 class SiajProductCardVertical extends StatelessWidget {
   const SiajProductCardVertical({super.key});

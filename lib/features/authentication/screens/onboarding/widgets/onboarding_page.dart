@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:siaj_ecommerce/utils/constants/sizes.dart';
-import 'package:siaj_ecommerce/utils/helper/helper_function.dart';
+import 'package:siaj_ecommerce/utils/helpers/helper_function.dart';
 
 class OnBoardingPage extends StatelessWidget {
 

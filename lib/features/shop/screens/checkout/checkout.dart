@@ -12,7 +12,7 @@ import 'package:siaj_ecommerce/navigation_menu.dart';
 import 'package:siaj_ecommerce/utils/constants/colors.dart';
 import 'package:siaj_ecommerce/utils/constants/image_strings.dart';
 import 'package:siaj_ecommerce/utils/constants/sizes.dart';
-import 'package:siaj_ecommerce/utils/helper/helper_function.dart';
+import 'package:siaj_ecommerce/utils/helpers/helper_function.dart';
 
 class CheckoutScreen extends StatelessWidget {
   const CheckoutScreen({super.key});
