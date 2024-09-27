@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:siaj_ecommerce/features/authentication/controllers/signup/signup_controller.dart';
-import 'package:siaj_ecommerce/features/authentication/screens/signup/verify_email.dart';
 import 'package:siaj_ecommerce/features/authentication/screens/signup/widgets/terms_conditions_checkbox.dart';
 import 'package:siaj_ecommerce/utils/constants/sizes.dart';
 import 'package:siaj_ecommerce/utils/constants/text_strings.dart';
@@ -73,7 +72,7 @@ class SiajSignUpForm extends StatelessWidget {
         /// Phone number
         TextFormField(
           controller: controller.phoneNumber,
-          validator: (value) => SiajValidator.validatePassword(value),
+          validator: (value) => SiajValidator.validatePhoneNumber(value),
           expands: false,
           decoration: const InputDecoration(
               labelText: SiajTexts.phoneNo, prefixIcon: Icon(Iconsax.call)),
@@ -82,13 +81,19 @@ class SiajSignUpForm extends StatelessWidget {
         const SizedBox(height: SiajSizes.spaceBtwInputFields),
 
         /// Password
-        TextFormField(
-          controller: controller.password,
-          expands: false,
-          decoration: const InputDecoration(
-              labelText: SiajTexts.password,
-              prefixIcon: Icon(Iconsax.password_check),
-              suffixIcon: Icon(Iconsax.eye_slash)),
+        Obx(
+          () => TextFormField(
+            controller: controller.password,
+            validator: (value) => SiajValidator.validatePassword(value),
+            expands: false,
+            obscureText: controller.hidePassword.value,
+            decoration:  InputDecoration(
+                labelText: SiajTexts.password,
+                prefixIcon: const Icon(Iconsax.password_check),
+                suffixIcon: IconButton(onPressed: () => controller.hidePassword.value = !controller.hidePassword.value, icon: Icon(
+                    controller.hidePassword.value?
+                    Iconsax.eye_slash : Iconsax.eye))),
+          ),
         ),
 
         const SizedBox(height: SiajSizes.spaceBtwSections),

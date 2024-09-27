@@ -23,6 +23,8 @@ dependencies:
   url_launcher: ^6.3.0
   flutter_native_splash: ^2.4.1
   smooth_page_indicator: ^1.2.0+3
+  lottie: ^3.1.2
+  connectivity_plus: ^6.0.5
 
   # Icons Packages
   iconsax: ^0.0.8
@@ -39,6 +41,9 @@ dependencies:
 
   # Firebase
   firebase_core: ^3.5.0
+  firebase_auth: ^5.3.1
+  cloud_firestore: ^5.4.3
+
 
 
 dev_dependencies:
