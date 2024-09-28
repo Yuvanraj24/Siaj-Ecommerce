@@ -28,8 +28,8 @@ class SignupController extends GetxController {
   void signUp() async {
     try {
       // Start Loading
-      // SiajFullScreenLoader.openLoadingDialog(
-      //     "We are processing your information", SiajImages.verifyIllustration);
+      SiajFullScreenLoader.openLoadingDialog(
+          "We are processing your information", SiajImages.docerAnimation);
 
       // Check Internet Connectivity
       final isConnected = await NetworkManager.instance.isConnected();
@@ -50,6 +50,7 @@ class SignupController extends GetxController {
       if (!privacyPolicy.value) {
         SiajLoaders.warningSnackBar(title: "Accept Privacy Policy",
             message: "In order to create account, you must have to read and accept the Privacy Policy & Terms of Use.");
+        // SiajFullScreenLoader.stopLoading();
         return;
       }
 
@@ -78,7 +79,7 @@ class SignupController extends GetxController {
       SiajLoaders.successSnackBar(title: "Congratulations", message: "Your account has been created Verify email to continue.");
 
       // Move to verify email screen
-      Get.to(() =>  const VerifyEmailScreen());
+      Get.to(() =>  VerifyEmailScreen(email: email.text));
 
     } catch (e) {
       // show some Generic Error to the user

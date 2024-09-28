@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:siaj_ecommerce/common/widgets/success_screen/success_screen.dart';
+import 'package:siaj_ecommerce/data/repositories/authentication/authentication_repository.dart';
+import 'package:siaj_ecommerce/features/authentication/controllers/signup/verify_email_controller.dart';
 import 'package:siaj_ecommerce/features/authentication/screens/login/login.dart';
 import 'package:siaj_ecommerce/utils/constants/image_strings.dart';
 import 'package:siaj_ecommerce/utils/constants/sizes.dart';
@@ -9,23 +11,27 @@ import 'package:siaj_ecommerce/utils/constants/text_strings.dart';
 import 'package:siaj_ecommerce/utils/helpers/helper_function.dart';
 
 class VerifyEmailScreen extends StatelessWidget {
-  const VerifyEmailScreen({super.key});
+  const VerifyEmailScreen({super.key, this.email});
+
+  final String? email;
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(VerifyEmailController());
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
-              onPressed: () => Get.offAll(() => const LoginScreen()),
+              onPressed: () => AuthenticationRepository.instance.logout(),
               icon: const Icon(CupertinoIcons.clear))
         ],
       ),
       body: SingleChildScrollView(
         // Padding to Give Default Equal Space on all sides in all screens
         child: Padding(
-          padding: EdgeInsets.all(SiajSizes.defaultSpace),
+          padding: const EdgeInsets.all(SiajSizes.defaultSpace),
           child: Column(
             children: [
               ///Image
@@ -40,7 +46,7 @@ class VerifyEmailScreen extends StatelessWidget {
                   style: Theme.of(context).textTheme.headlineMedium,
                   textAlign: TextAlign.center),
               const SizedBox(height: SiajSizes.spaceBtwItems),
-              Text("support@siajdynamicinnovations.in",
+              Text(email ?? "",
                   style: Theme.of(context).textTheme.labelLarge,
                   textAlign: TextAlign.center),
               const SizedBox(height: SiajSizes.spaceBtwItems),
@@ -50,17 +56,20 @@ class VerifyEmailScreen extends StatelessWidget {
               const SizedBox(height: SiajSizes.spaceBtwSections),
 
               ///Buttons
-              SizedBox(width: double.infinity,
-              child: ElevatedButton(onPressed: () => Get.to(() =>  SuccessScreen(
-                image: SiajImages.staticSuccessIllustration, title: SiajTexts.yourAccountCreatedTitle, subTitle: SiajTexts.yourAccountCreatedSubTitle, onPressed: () =>  Get.to(() => LoginScreen()),)), child: const Text(SiajTexts.siajContinue)),),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                    onPressed: () => controller.checkEmailVerificationStatus(),
+                    child: const Text(SiajTexts.siajContinue)),
+              ),
 
               const SizedBox(height: SiajSizes.spaceBtwItems),
 
-              SizedBox(width: double.infinity,
-                child: TextButton(onPressed: () {
-
-                }, child: const Text(SiajTexts.resendEmail)),),
-
+              SizedBox(
+                width: double.infinity,
+                child: TextButton(
+                    onPressed: () => controller.sendEmailVerification(), child: const Text(SiajTexts.resendEmail)),
+              ),
             ],
           ),
         ),
