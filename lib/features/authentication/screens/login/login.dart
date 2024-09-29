@@ -14,25 +14,27 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: SiajSpacingStyle.paddingWithAppBarHeight,
-        child: Column(children: [
-          /// Logo title & sub-title
-          const SiajLoginHeader(),
-
-          /// Form
-          const SiajLoginForm(),
-
-          ///Divider
-          SiajFormDivider(
-            dividerText: SiajTexts.orSignInWith.capitalize!,
-          ),
-
-          const SizedBox(height: SiajSizes.spaceBtwItems),
-
-          ///Footer
-          const SiajSocialButtons(),
-        ]),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: SiajSpacingStyle.paddingWithAppBarHeight,
+          child: Column(children: [
+            /// Logo title & sub-title
+            const SiajLoginHeader(),
+        
+            /// Form
+            const SiajLoginForm(),
+        
+            ///Divider
+            SiajFormDivider(
+              dividerText: SiajTexts.orSignInWith.capitalize!,
+            ),
+        
+            const SizedBox(height: SiajSizes.spaceBtwItems),
+        
+            ///Footer
+            const SiajSocialButtons(),
+          ]),
+        ),
       ),
     );
   }

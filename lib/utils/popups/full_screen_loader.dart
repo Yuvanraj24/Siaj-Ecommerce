@@ -10,6 +10,7 @@ class SiajFullScreenLoader {
       context: Get.overlayContext!,
       barrierDismissible: false,
       builder: (_) => PopScope(
+        canPop: false,
           child: Container(
         color: SiajHelperFunctions.isDarkMode(Get.context!)
             ? SiajColors.dark

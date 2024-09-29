@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:siaj_ecommerce/features/authentication/controllers/login/login_controller.dart';
 import 'package:siaj_ecommerce/features/authentication/screens/password_configuration/forget_password.dart';
 import 'package:siaj_ecommerce/features/authentication/screens/signup/signup.dart';
 import 'package:siaj_ecommerce/navigation_menu.dart';
 import 'package:siaj_ecommerce/utils/constants/sizes.dart';
 import 'package:siaj_ecommerce/utils/constants/text_strings.dart';
+import 'package:siaj_ecommerce/utils/validators/validation.dart';
 
 class SiajLoginForm extends StatelessWidget {
   const SiajLoginForm({
@@ -14,7 +16,9 @@ class SiajLoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(LoginController());
     return Form(
+      key: controller.loginFormKey,
         child: Padding(
           padding: const EdgeInsets.symmetric(
               vertical: SiajSizes.spaceBtwSections),
@@ -22,6 +26,8 @@ class SiajLoginForm extends StatelessWidget {
             children: [
               ///Email
               TextFormField(
+                controller: controller.email,
+                validator:(value) => SiajValidator.validateEmail(value),
                 decoration: const InputDecoration(
                     prefixIcon: Icon(Iconsax.direct_right),
                     labelText: SiajTexts.email),
@@ -29,11 +35,19 @@ class SiajLoginForm extends StatelessWidget {
               const SizedBox(height: SiajSizes.spaceBtwInputFields),
 
               ///Password
-              TextFormField(
-                decoration: const InputDecoration(
-                    prefixIcon: Icon(Iconsax.password_check),
-                    labelText: SiajTexts.password,
-                    suffixIcon: Icon(Iconsax.eye_slash)),
+              Obx(
+                () => TextFormField(
+                  controller: controller.password,
+                  validator: (value) => SiajValidator.validateEmptyText("Password",value),
+                  obscureText: controller.hidePassword.value,
+                  decoration: InputDecoration(
+                      prefixIcon: const Icon(Iconsax.password_check),
+                      labelText: SiajTexts.password,
+                      suffixIcon: IconButton(onPressed: () => controller.hidePassword.value = !controller.hidePassword.value, icon: Icon(
+                          controller.hidePassword.value?
+                          Iconsax.eye_slash : Iconsax.eye))
+                  ),
+                ),
               ),
 
               const SizedBox(height: SiajSizes.spaceBtwInputFields),
@@ -44,7 +58,7 @@ class SiajLoginForm extends StatelessWidget {
                   children: [
                     /// Remember Me
                     Row(children: [
-                      Checkbox(value: true, onChanged: (value) {}),
+                      Obx(() => Checkbox(value: controller.rememberMe.value, onChanged: (value) => controller.rememberMe.value = !controller.rememberMe.value)),
                       const Text(SiajTexts.rememberMe)
                     ]),
 
@@ -60,7 +74,7 @@ class SiajLoginForm extends StatelessWidget {
               SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                      onPressed: () =>  Get.to(() => const NavigationMenu()), child: const Text(SiajTexts.signIn))),
+                      onPressed: () =>  controller.emailAndPasswordSignIn(), child: const Text(SiajTexts.signIn))),
               const SizedBox(height: SiajSizes.spaceBtwItems),
 
               /// Create Account Button

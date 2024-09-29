@@ -72,8 +72,7 @@ class VerifyEmailScreen extends StatelessWidget {
               ),
             ],
           ),
-        ),
-      ),
+        )),
     );
   }
 }

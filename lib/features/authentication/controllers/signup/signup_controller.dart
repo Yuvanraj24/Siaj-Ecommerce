@@ -23,7 +23,6 @@ class SignupController extends GetxController {
   final phoneNumber = TextEditingController();
   GlobalKey<FormState> signupFormKey = GlobalKey<FormState>();
 
-
   /// SignUp
   void signUp() async {
     try {
@@ -48,8 +47,10 @@ class SignupController extends GetxController {
 
       // Privacy Policy Check
       if (!privacyPolicy.value) {
-        SiajLoaders.warningSnackBar(title: "Accept Privacy Policy",
-            message: "In order to create account, you must have to read and accept the Privacy Policy & Terms of Use.");
+        SiajLoaders.warningSnackBar(
+            title: "Accept Privacy Policy",
+            message:
+                "In order to create account, you must have to read and accept the Privacy Policy & Terms of Use.");
         // SiajFullScreenLoader.stopLoading();
         return;
       }
@@ -58,10 +59,11 @@ class SignupController extends GetxController {
       // Register User in Firebase Authentication & Save user data in the Firebase
       final userCredential = await AuthenticationRepository.instance
           .registerWithEmailAndPassword(
-          email.text.trim(), password.text.trim());
+              email.text.trim(), password.text.trim());
 
       // Save Authenticated user data in the Firebase FireStore
-      final newUser = UserModel(id: userCredential.user!.uid,
+      final newUser = UserModel(
+          id: userCredential.user!.uid,
           fireName: firstName.text.trim(),
           lastName: lastName.text.trim(),
           email: email.text.trim(),
@@ -76,11 +78,12 @@ class SignupController extends GetxController {
       SiajFullScreenLoader.stopLoading();
 
       // Show success message
-      SiajLoaders.successSnackBar(title: "Congratulations", message: "Your account has been created Verify email to continue.");
+      SiajLoaders.successSnackBar(
+          title: "Congratulations",
+          message: "Your account has been created Verify email to continue.");
 
       // Move to verify email screen
-      Get.to(() =>  VerifyEmailScreen(email: email.text));
-
+      Get.to(() => VerifyEmailScreen(email: email.text));
     } catch (e) {
       // show some Generic Error to the user
       SiajLoaders.errorSnackBar(title: "On Snap!", message: e.toString());
