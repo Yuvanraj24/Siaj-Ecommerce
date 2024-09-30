@@ -25,6 +25,8 @@ dependencies:
   smooth_page_indicator: ^1.2.0+3
   lottie: ^3.1.2
   connectivity_plus: ^6.0.5
+  shimmer: ^3.0.0
+
 
   # Icons Packages
   iconsax: ^0.0.8

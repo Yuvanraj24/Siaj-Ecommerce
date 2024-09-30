@@ -17,14 +17,20 @@ class AuthenticationRepository extends GetxController {
   final deviceStorage = GetStorage();
   final _auth = FirebaseAuth.instance;
 
+  /// Get Authenticated User Data
+  User? get authUser => _auth.currentUser;
+
   /// Call from main.dart on app Launch
   @override
   void onReady() {
+    // Remove the native splash screen
     FlutterNativeSplash.remove();
+
+    // Redirect to the appropriate  screen
     screenRedirect();
   }
 
-  /// Functions to show relevant screen
+  /// Functions to determine the relevant screen and redirect accordingly
   screenRedirect() async {
     final user = _auth.currentUser;
     if (user != null) {
@@ -114,8 +120,28 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
-  /// [ReAuthentication] - ReAuthenticate User
   /// [EmailAuthenticate] -  Forget Password
+  Future<void> sendPasswordResetEmail(String email) async {
+    try {
+      await _auth.sendPasswordResetEmail(email: email);
+    }
+
+    /// * Important want to handle exception
+    on FirebaseAuthException catch (e) {
+      throw "${e.code} - FirebaseAuth Exception : ${e.message}";
+    } on FirebaseException catch (e) {
+      throw "${e.code} - Firebase Exception : ${e.message}";
+    } on FormatException catch (_) {
+      throw "Format Exception";
+    } on PlatformException catch (e) {
+      throw "${e.code} - Platform Exception : ${e.message}";
+    }
+    catch (e) {
+      throw "Something went wrong. Please try again";
+    }
+  }
+
+  /// [ReAuthentication] - ReAuthenticate User
 
 /*--------------------------------------------------------- Federated identify & social sign-in -------------------------------------------------------*/
 

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:siaj_ecommerce/common/widgets/appbar/appbar.dart';
 import 'package:siaj_ecommerce/common/widgets/products/cart/cart_menu_icon.dart';
+import 'package:siaj_ecommerce/features/personalization/controllers/user_controller.dart';
 import 'package:siaj_ecommerce/utils/constants/colors.dart';
 import 'package:siaj_ecommerce/utils/constants/text_strings.dart';
+import 'package:siaj_ecommerce/utils/shimmer/shimmer_effect.dart';
 
 class SiajHomeAppBar extends StatelessWidget {
   const SiajHomeAppBar({
@@ -11,6 +14,7 @@ class SiajHomeAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(UserController());
     return SiajAppBar(
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -20,11 +24,21 @@ class SiajHomeAppBar extends StatelessWidget {
                   .textTheme
                   .labelMedium!
                   .apply(color: SiajColors.grey)),
-          Text(SiajTexts.homeAppbarSubTitle,
-              style: Theme.of(context)
-                  .textTheme
-                  .headlineSmall!
-                  .apply(color: SiajColors.white)),
+          Obx(
+            () {
+              if(controller.profileLoading.value){
+                // Display a shimmer loader
+                return const SiajShimmerEffect(width: 80, height: 15);
+              }else {
+                return Text(controller.user.value.fullName,
+                    style: Theme.of(context)
+                        .textTheme
+                        .headlineSmall!
+                        .apply(color: SiajColors.white));
+              }
+
+            },
+          ),
         ],
       ),
       actions: [

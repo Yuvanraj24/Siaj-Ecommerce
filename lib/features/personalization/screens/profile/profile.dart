@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
+import 'package:get/get.dart';
+
 import 'package:siaj_ecommerce/common/widgets/appbar/appbar.dart';
 import 'package:siaj_ecommerce/common/widgets/images/siaj_circlar_image.dart';
 import 'package:siaj_ecommerce/common/widgets/texts/section_heading.dart';
+import 'package:siaj_ecommerce/features/personalization/controllers/user_controller.dart';
 import 'package:siaj_ecommerce/features/personalization/screens/profile/widgets/profile_menu.dart';
 import 'package:siaj_ecommerce/utils/constants/image_strings.dart';
 import 'package:siaj_ecommerce/utils/constants/sizes.dart';
@@ -12,14 +14,15 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = UserController.instance;
     return Scaffold(
-      appBar: SiajAppBar(
+      appBar: const SiajAppBar(
         showBackArrow: true,
         title: Text("Profile"),
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(SiajSizes.defaultSpace),
+          padding: const EdgeInsets.all(SiajSizes.defaultSpace),
           child: Column(
             children: [
               /// Profile Picture
@@ -46,39 +49,39 @@ class ProfileScreen extends StatelessWidget {
               const SizedBox(height: SiajSizes.spaceBtwItems),
 
               SiajProfileMenu(
-                onPressed: () {},
+                onPressed: () => Get.to(() => ChangeNa),
                 title: "Name",
-                value: "Coding with Siaj",
+                value: controller.user.value.fullName,
               ),
               SiajProfileMenu(
                 onPressed: () {},
                 title: "Username",
-                value: "coding_with_siaj",
+                value: controller.user.value.userName,
               ),
 
-              SizedBox(height: SiajSizes.spaceBtwItems),
-              Divider(),
-              SizedBox(height: SiajSizes.spaceBtwItems),
+              const SizedBox(height: SiajSizes.spaceBtwItems),
+              const Divider(),
+              const SizedBox(height: SiajSizes.spaceBtwItems),
 
               /// Heading Personal Info
-              SiajSectionHeading(
+              const SiajSectionHeading(
                   title: "Personal Information", showActionButton: false),
-              SizedBox(height: SiajSizes.spaceBtwItems),
+              const SizedBox(height: SiajSizes.spaceBtwItems),
 
               SiajProfileMenu(
                 onPressed: () {},
                 title: "User ID",
-                value: "45689",
+                value: controller.user.value.id,
               ),
               SiajProfileMenu(
                 onPressed: () {},
                 title: "E-mail",
-                value: "coding_with_siaj",
+                value: controller.user.value.email,
               ),
               SiajProfileMenu(
                 onPressed: () {},
                 title: "Phone Number",
-                value: "+91 9150296989",
+                value: controller.user.value.phoneNumber,
               ),
               SiajProfileMenu(
                 onPressed: () {},
