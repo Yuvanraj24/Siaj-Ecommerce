@@ -64,7 +64,7 @@ class SignupController extends GetxController {
       // Save Authenticated user data in the Firebase FireStore
       final newUser = UserModel(
           id: userCredential.user!.uid,
-          fireName: firstName.text.trim(),
+          firstName: firstName.text.trim(),
           lastName: lastName.text.trim(),
           email: email.text.trim(),
           phoneNumber: phoneNumber.text.trim(),

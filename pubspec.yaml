@@ -26,7 +26,7 @@ dependencies:
   lottie: ^3.1.2
   connectivity_plus: ^6.0.5
   shimmer: ^3.0.0
-
+  image_picker: ^1.1.2
 
   # Icons Packages
   iconsax: ^0.0.8
@@ -46,6 +46,8 @@ dependencies:
   firebase_auth: ^5.3.1
   cloud_firestore: ^5.4.3
   google_sign_in: ^6.2.1
+  firebase_storage: ^12.3.2
+  cached_network_image: ^3.4.1
 
 
 

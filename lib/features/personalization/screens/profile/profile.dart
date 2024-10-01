@@ -5,9 +5,11 @@ import 'package:siaj_ecommerce/common/widgets/appbar/appbar.dart';
 import 'package:siaj_ecommerce/common/widgets/images/siaj_circlar_image.dart';
 import 'package:siaj_ecommerce/common/widgets/texts/section_heading.dart';
 import 'package:siaj_ecommerce/features/personalization/controllers/user_controller.dart';
+import 'package:siaj_ecommerce/features/personalization/screens/profile/widgets/change_name.dart';
 import 'package:siaj_ecommerce/features/personalization/screens/profile/widgets/profile_menu.dart';
 import 'package:siaj_ecommerce/utils/constants/image_strings.dart';
 import 'package:siaj_ecommerce/utils/constants/sizes.dart';
+import 'package:siaj_ecommerce/utils/shimmer/shimmer_effect.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -30,10 +32,23 @@ class ProfileScreen extends StatelessWidget {
                 width: double.infinity,
                 child: Column(
                   children: [
-                    const SiajCircularImage(
-                        image: SiajImages.user, width: 80, height: 80),
+                    Obx(() {
+                      final networkImage = controller.user.value.profilePicture;
+                      final image = networkImage.isNotEmpty
+                          ? networkImage
+                          : SiajImages.user;
+
+                      return controller.imageUploading.value
+                          ? const SiajShimmerEffect(
+                              width: 80, height: 80, radius: 80)
+                          : SiajCircularImage(
+                              image: image,
+                              width: 80,
+                              height: 80,
+                              isNetworkImage: networkImage.isNotEmpty);
+                    }),
                     TextButton(
-                        onPressed: () {},
+                        onPressed: () => controller.uploadUserProfilePicture(),
                         child: const Text("Change Profile Picture"))
                   ],
                 ),
@@ -50,7 +65,7 @@ class ProfileScreen extends StatelessWidget {
 
               SiajProfileMenu(
                 /// Screen want to create
-                onPressed: () => Get.to(() => ChangeName()),
+                onPressed: () => Get.to(() => const ChangeName()),
                 title: "Name",
                 value: controller.user.value.fullName,
               ),
@@ -100,7 +115,7 @@ class ProfileScreen extends StatelessWidget {
 
               Center(
                 child: TextButton(
-                    onPressed: () {},
+                    onPressed: () => controller.deleteAccountWarningPopup(),
                     child: const Text(
                       "Close Account",
                       style: TextStyle(color: Colors.red),
