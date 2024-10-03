@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:siaj_ecommerce/utils/constants/colors.dart';
 import 'package:siaj_ecommerce/utils/constants/sizes.dart';
 import 'package:siaj_ecommerce/utils/helpers/helper_function.dart';
-import 'package:siaj_ecommerce/utils/shimmer/shimmer_effect.dart';
+import 'package:siaj_ecommerce/common/widgets/shimmers/shimmer_effect.dart';
 
 class SiajCircularImage extends StatelessWidget {
   const SiajCircularImage({

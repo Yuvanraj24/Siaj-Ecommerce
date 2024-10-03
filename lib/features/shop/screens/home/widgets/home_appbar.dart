@@ -5,7 +5,7 @@ import 'package:siaj_ecommerce/common/widgets/products/cart/cart_menu_icon.dart'
 import 'package:siaj_ecommerce/features/personalization/controllers/user_controller.dart';
 import 'package:siaj_ecommerce/utils/constants/colors.dart';
 import 'package:siaj_ecommerce/utils/constants/text_strings.dart';
-import 'package:siaj_ecommerce/utils/shimmer/shimmer_effect.dart';
+import 'package:siaj_ecommerce/common/widgets/shimmers/shimmer_effect.dart';
 
 class SiajHomeAppBar extends StatelessWidget {
   const SiajHomeAppBar({

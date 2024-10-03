@@ -9,7 +9,7 @@ import 'package:siaj_ecommerce/features/personalization/screens/profile/widgets/
 import 'package:siaj_ecommerce/features/personalization/screens/profile/widgets/profile_menu.dart';
 import 'package:siaj_ecommerce/utils/constants/image_strings.dart';
 import 'package:siaj_ecommerce/utils/constants/sizes.dart';
-import 'package:siaj_ecommerce/utils/shimmer/shimmer_effect.dart';
+import 'package:siaj_ecommerce/common/widgets/shimmers/shimmer_effect.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
