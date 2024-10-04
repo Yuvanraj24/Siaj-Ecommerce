@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:siaj_ecommerce/common/widgets/images/siaj_circlar_image.dart';
 import 'package:siaj_ecommerce/utils/constants/colors.dart';
 import 'package:siaj_ecommerce/utils/constants/sizes.dart';
 import 'package:siaj_ecommerce/utils/helpers/helper_function.dart';
@@ -11,12 +12,15 @@ class SiajVerticalImageText extends StatelessWidget {
     this.textColor = SiajColors.white,
     this.backgroundColor,
     this.onTap,
+    this.isNetworkImage = true
+
   });
 
   final String image, title;
   final Color textColor;
   final Color? backgroundColor;
   final void Function()? onTap;
+  final bool isNetworkImage;
 
   @override
   Widget build(BuildContext context) {
@@ -24,25 +28,35 @@ class SiajVerticalImageText extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Padding(
-        padding: const EdgeInsets.only(right: SiajSizes.spaceBtwItems),
+        padding:  EdgeInsets.only(right: SiajSizes.spaceBtwItems),
         child: Column(
           children: [
             /// Circular Icon
-            Container(
-              width: 56,
-              height: 56,
-              padding: const EdgeInsets.all(SiajSizes.sm),
-              decoration: BoxDecoration(
-                  color: backgroundColor ??
-                      (dark ? SiajColors.black : SiajColors.white),
-                  borderRadius: BorderRadius.circular(100)),
-              child: Center(
-                child: Image(
-                  image: AssetImage(image),
-                  fit: BoxFit.cover,
-                  color: dark ? SiajColors.light : SiajColors.dark,
-                ),
-              ),
+            // Container(
+            //   width: 56,
+            //   height: 56,
+            //   padding: const EdgeInsets.all(SiajSizes.sm),
+            //   decoration: BoxDecoration(
+            //       color: backgroundColor ??
+            //           (dark ? SiajColors.black : SiajColors.white),
+            //       borderRadius: BorderRadius.circular(100)),
+            //   child: Center(
+            //     child: Image(
+            //       image: AssetImage(image),
+            //       fit: BoxFit.cover,
+            //       color: dark ? SiajColors.light : SiajColors.dark,
+            //     ),
+            //   ),
+            // ),
+            SiajCircularImage(
+              isNetworkImage: isNetworkImage,
+              fit: BoxFit.fitWidth,
+              padding: SiajSizes.sm * 1.4,
+              image: image,
+              backgroundColor: backgroundColor,
+              overlayColor: SiajHelperFunctions.isDarkMode(context)
+                  ? SiajColors.light
+                  : SiajColors.dark,
             ),
             const SizedBox(height: SiajSizes.spaceBtwItems / 2),
 

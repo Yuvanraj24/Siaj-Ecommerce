@@ -6,6 +6,8 @@ import 'package:siaj_ecommerce/common/widgets/custom_shapes/containers/primary_h
 import 'package:siaj_ecommerce/common/widgets/list_tiles/settings_menu_tile.dart';
 import 'package:siaj_ecommerce/common/widgets/list_tiles/user_profile_tile.dart';
 import 'package:siaj_ecommerce/common/widgets/texts/section_heading.dart';
+import 'package:siaj_ecommerce/data/dummy_data.dart';
+import 'package:siaj_ecommerce/data/repositories/categories/category_repository.dart';
 import 'package:siaj_ecommerce/features/personalization/screens/address/address.dart';
 import 'package:siaj_ecommerce/features/personalization/screens/profile/profile.dart';
 import 'package:siaj_ecommerce/features/shop/screens/order/order.dart';
@@ -17,6 +19,7 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final categoryRepo = Get.put(CategoryRepository());
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -88,7 +91,8 @@ class SettingsScreen extends StatelessWidget {
                   const SiajSectionHeading(
                       title: "App Settings", showActionButton: false),
                   const SizedBox(height: SiajSizes.spaceBtwItems),
-                  const SiajSettingsMenuTile(
+                   SiajSettingsMenuTile(
+                      onTap: () => categoryRepo.uploadDummyData(SiajDummyData.categories),
                       icon: Iconsax.document_upload,
                       title: "Load Data",
                       subTitle: "Upload Data to your Cloud Firebase"),
@@ -98,8 +102,9 @@ class SettingsScreen extends StatelessWidget {
                       icon: Iconsax.location,
                       title: "Geolocation",
                       subTitle: "Set recommendation based on location",
-                      trailing: Switch(value: true, onChanged: (value) {})),
+                      trailing: Switch(value: false, onChanged: (value) {})),
                   SiajSettingsMenuTile(
+
                       icon: Iconsax.security_user,
                       title: "Safe Mode",
                       subTitle: "Search result is safe for all ages",

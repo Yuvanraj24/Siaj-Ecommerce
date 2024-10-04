@@ -40,7 +40,7 @@ class HomeScreen extends StatelessWidget {
               SizedBox(height: SiajSizes.spaceBtwSections),
 
               /// Categories
-              Padding(
+              Padding   (
                 padding: EdgeInsets.only(left: SiajSizes.defaultSpace),
                 child: Column(children: [
                   /// Heading
@@ -66,11 +66,7 @@ class HomeScreen extends StatelessWidget {
             padding: const EdgeInsets.all(SiajSizes.defaultSpace),
             child: Column(children: [
               /// Promo Slider
-              const SiajPromoSlider(banners: [
-                SiajImages.promoBanner1,
-                SiajImages.promoBanner2,
-                SiajImages.promoBanner3,
-              ]),
+              const SiajPromoSlider(),
               const SizedBox(height: SiajSizes.spaceBtwSections),
 
               /// Heading

@@ -1,4 +1,6 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:siaj_ecommerce/common/widgets/shimmers/shimmer_effect.dart';
 import 'package:siaj_ecommerce/utils/constants/colors.dart';
 import 'package:siaj_ecommerce/utils/constants/sizes.dart';
 
@@ -45,11 +47,15 @@ class SiajRoundedImage extends StatelessWidget {
           borderRadius: applyImageRadius
               ? BorderRadius.circular(borderRadius)
               : BorderRadius.zero,
-          child: Image(
+          child: isNetworkImage
+              ? CachedNetworkImage(
+            fit: fit,
+            imageUrl: imageUrl,
+            progressIndicatorBuilder: (context, url, downloadProgress) => const SiajShimmerEffect(width: double.infinity, height: 55),
+            errorWidget: (context, url, error) => const Icon(Icons.error),
+          ):Image(
               fit: fit,
-              image: isNetworkImage
-                  ? NetworkImage(imageUrl)
-                  : AssetImage(imageUrl) as ImageProvider),
+              image: AssetImage(imageUrl) as ImageProvider),
         ),
       ),
     );

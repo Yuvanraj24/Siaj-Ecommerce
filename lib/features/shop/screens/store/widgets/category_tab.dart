@@ -3,17 +3,20 @@ import 'package:siaj_ecommerce/common/widgets/brands/brand_show_case.dart';
 import 'package:siaj_ecommerce/common/widgets/layouts/grid_layout.dart';
 import 'package:siaj_ecommerce/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:siaj_ecommerce/common/widgets/texts/section_heading.dart';
+import 'package:siaj_ecommerce/features/shop/models/category_model.dart';
 import 'package:siaj_ecommerce/utils/constants/image_strings.dart';
 import 'package:siaj_ecommerce/utils/constants/sizes.dart';
 
 class SiajCategoryTab extends StatelessWidget {
-  const SiajCategoryTab({super.key});
+  const SiajCategoryTab({super.key, required this.category});
+
+  final CategoryModel category;
 
   @override
   Widget build(BuildContext context) {
     return ListView(
       shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       children: [
         Padding(
           padding: const EdgeInsets.all(SiajSizes.defaultSpace),
