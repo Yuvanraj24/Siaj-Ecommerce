@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:siaj_ecommerce/data/repositories/authentication/authentication_repository.dart';
 import 'package:siaj_ecommerce/data/repositories/user/user_repository.dart';
-import 'package:siaj_ecommerce/features/authentication/controllers/network_manager/network_manager.dart';
+import 'package:siaj_ecommerce/data/services/network_manager/network_manager.dart';
 import 'package:siaj_ecommerce/features/authentication/models/user/user_model.dart';
 import 'package:siaj_ecommerce/features/authentication/screens/signup/verify_email.dart';
 import 'package:siaj_ecommerce/utils/constants/image_strings.dart';

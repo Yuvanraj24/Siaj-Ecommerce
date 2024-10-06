@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:siaj_ecommerce/data/repositories/authentication/authentication_repository.dart';
 import 'package:siaj_ecommerce/data/repositories/user/user_repository.dart';
-import 'package:siaj_ecommerce/features/authentication/controllers/network_manager/network_manager.dart';
+import 'package:siaj_ecommerce/data/services/network_manager/network_manager.dart';
 import 'package:siaj_ecommerce/features/authentication/models/user/user_model.dart';
 import 'package:siaj_ecommerce/features/authentication/screens/login/login.dart';
 import 'package:siaj_ecommerce/features/personalization/screens/profile/widgets/re_authenticate_user_login_form.dart';

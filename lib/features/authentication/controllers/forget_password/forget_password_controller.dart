@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:siaj_ecommerce/data/repositories/authentication/authentication_repository.dart';
-import 'package:siaj_ecommerce/features/authentication/controllers/network_manager/network_manager.dart';
+import 'package:siaj_ecommerce/data/services/network_manager/network_manager.dart';
 import 'package:siaj_ecommerce/features/authentication/screens/password_configuration/reset_password.dart';
 import 'package:siaj_ecommerce/utils/constants/image_strings.dart';
 import 'package:siaj_ecommerce/utils/loaders/loaders.dart';
