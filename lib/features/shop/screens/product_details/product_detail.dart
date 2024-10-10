@@ -7,6 +7,7 @@ import 'package:siaj_ecommerce/common/widgets/custom_shapes/curved_edges/curved_
 import 'package:siaj_ecommerce/common/widgets/icons/siaj_circular_icon.dart';
 import 'package:siaj_ecommerce/common/widgets/images/siaj_rounded_image.dart';
 import 'package:siaj_ecommerce/common/widgets/texts/section_heading.dart';
+import 'package:siaj_ecommerce/features/shop/models/product_model.dart';
 import 'package:siaj_ecommerce/features/shop/screens/product_details/widgets/bottom_add_to_cart_widget.dart';
 import 'package:siaj_ecommerce/features/shop/screens/product_details/widgets/product_detail_image_slider.dart';
 import 'package:siaj_ecommerce/features/shop/screens/product_details/widgets/product_meta_data.dart';
@@ -19,8 +20,9 @@ import 'package:siaj_ecommerce/utils/constants/sizes.dart';
 import 'package:siaj_ecommerce/utils/helpers/helper_function.dart';
 
 class ProductDetailScreen extends StatelessWidget {
-  const ProductDetailScreen({super.key});
+  const ProductDetailScreen({super.key, required this.product});
 
+  final ProductModel product;
   @override
   Widget build(BuildContext context) {
     final darkMode = SiajHelperFunctions.isDarkMode(context);

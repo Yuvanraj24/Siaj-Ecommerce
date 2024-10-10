@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:siaj_ecommerce/common/widgets/layouts/grid_layout.dart';
 import 'package:siaj_ecommerce/common/widgets/products/product_cards/product_card_vertical.dart';
+import 'package:siaj_ecommerce/features/shop/models/product_model.dart';
 import 'package:siaj_ecommerce/utils/constants/sizes.dart';
 
 class SiajSortableProducts extends StatelessWidget {
@@ -32,7 +33,7 @@ class SiajSortableProducts extends StatelessWidget {
         const SizedBox(height: SiajSizes.spaceBtwSections),
 
         /// Products
-        SiajGridLayout(itemCount: 4, itemBuilder: (_, index) => const SiajProductCardVertical())
+        SiajGridLayout(itemCount: 4, itemBuilder: (_, index) => SiajProductCardVertical(product: ProductModel.empty()))
       ],
     );
   }

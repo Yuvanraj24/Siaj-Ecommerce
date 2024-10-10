@@ -5,6 +5,7 @@ import 'package:siaj_ecommerce/common/widgets/custom_shapes/containers/primary_h
 import 'package:siaj_ecommerce/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:siaj_ecommerce/common/widgets/layouts/grid_layout.dart';
 import 'package:siaj_ecommerce/common/widgets/products/product_cards/product_card_vertical.dart';
+import 'package:siaj_ecommerce/common/widgets/shimmers/vertical_product_shimmer.dart';
 import 'package:siaj_ecommerce/common/widgets/texts/section_heading.dart';
 import 'package:siaj_ecommerce/features/shop/controllers/product_controller.dart';
 import 'package:siaj_ecommerce/features/shop/screens/all_products/all_products.dart';
@@ -78,9 +79,17 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(height: SiajSizes.spaceBtwItems),
 
               /// Popular Products
-              SiajGridLayout(
-                itemCount: 5,
-                itemBuilder: (_, index) => const SiajProductCardVertical(),
+              Obx(
+                () {
+                  if(controller.isLoading.value) return const SiajVerticalProductShimmer();
+                  if(controller.featuredProducts.isEmpty) {
+                    return Center(child: Text("No Data Found", style: Theme.of(context).textTheme.bodyMedium));
+                  }
+                  return SiajGridLayout(
+                    itemCount: controller.featuredProducts.length,
+                    itemBuilder: (_, index) =>  SiajProductCardVertical(product: controller.featuredProducts[index]),
+                  );
+                }
               ),
             ]),
           )

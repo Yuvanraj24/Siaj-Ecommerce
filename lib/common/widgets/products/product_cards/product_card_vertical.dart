@@ -8,22 +8,29 @@ import 'package:siaj_ecommerce/common/widgets/images/siaj_rounded_image.dart';
 import 'package:siaj_ecommerce/common/widgets/texts/product_price_text.dart';
 import 'package:siaj_ecommerce/common/widgets/texts/product_title_text.dart';
 import 'package:siaj_ecommerce/common/widgets/texts/siaj_brand_title_text_with_verified_icon.dart';
+import 'package:siaj_ecommerce/features/shop/controllers/product_controller.dart';
+import 'package:siaj_ecommerce/features/shop/models/product_model.dart';
 import 'package:siaj_ecommerce/features/shop/screens/product_details/product_detail.dart';
 import 'package:siaj_ecommerce/utils/constants/colors.dart';
+import 'package:siaj_ecommerce/utils/constants/enums.dart';
 import 'package:siaj_ecommerce/utils/constants/image_strings.dart';
 import 'package:siaj_ecommerce/utils/constants/sizes.dart';
 import 'package:siaj_ecommerce/utils/helpers/helper_function.dart';
 
 class SiajProductCardVertical extends StatelessWidget {
-  const SiajProductCardVertical({super.key});
+  const SiajProductCardVertical({super.key, required this.product});
+
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
+    final controller = ProductController.instance;
+    final salePercentage = controller.calculateSalePercentage(product.price, product.salesPrice);
     final darkMode = SiajHelperFunctions.isDarkMode(context);
 
     /// Container with side paddings, color, edges, radius and shadow
     return GestureDetector(
-      onTap: () => Get.to(()=> const ProductDetailScreen()),
+      onTap: () => Get.to(()=>  ProductDetailScreen(product: product)),
       child: Container(
         width: 180,
         padding: const EdgeInsets.all(1),
@@ -36,13 +43,16 @@ class SiajProductCardVertical extends StatelessWidget {
             /// Thumbnail, Wishlist Button, Discount Tag,
             SiajRoundedContainer(
               height: 180,
+              width: 180,
               padding: const EdgeInsets.all(SiajSizes.sm),
               backgroundColor: darkMode ? SiajColors.dark : SiajColors.light,
               child: Stack(
                 children: [
                   /// Thumbnail Image
-                  const SiajRoundedImage(
-                      imageUrl: SiajImages.productImage1, applyImageRadius: true),
+                   Center(
+                     child: SiajRoundedImage(
+                        imageUrl: product.thumbnail, applyImageRadius: true, isNetworkImage: true),
+                   ),
       
                   /// Sale Tag
                   Positioned(
@@ -53,7 +63,7 @@ class SiajProductCardVertical extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(
                           vertical: SiajSizes.xs, horizontal: SiajSizes.sm),
                       child: Text(
-                        "25 %",
+                        "$salePercentage %",
                         style: Theme.of(context)
                             .textTheme
                             .labelLarge!
@@ -75,26 +85,43 @@ class SiajProductCardVertical extends StatelessWidget {
             const SizedBox(height: SiajSizes.spaceBtwItems / 2),
       
             /// Details
-            const Padding(
-              padding: EdgeInsets.only(left: SiajSizes.sm),
+             Padding(
+              padding: const EdgeInsets.only(left: SiajSizes.sm),
               child:
                   Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                 SiajProductTitleText(
-                    title: "Green Nike Air Shoes", smallSize: true),
-                SizedBox(height: SiajSizes.spaceBtwItems / 2),
-                SiajBrandTitleWithVerifiedIcon(title: "Nike",)
+                    title: product.title, smallSize: true),
+                const SizedBox(height: SiajSizes.spaceBtwItems / 2),
+                SiajBrandTitleWithVerifiedIcon(title: product.brand!.name,)
               ]),
             ),
             const Spacer(),
 
+            /// Price row
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+
                 /// Price
-                const Padding(
-                  padding: EdgeInsets.only(left: SiajSizes.sm),
-                  child: SiajProductPriceText(price: '25.5'),
-                ),
+                 Flexible(
+                   child: Column(
+                     children: [
+                       if(product.productType == ProductType.single.toString() && product.salesPrice > 0)
+                         Padding(padding: const EdgeInsets.only(left: SiajSizes.sm),
+                         child: Text(
+                           product.price.toString(),
+                           style: Theme.of(context).textTheme.labelMedium!.apply(decoration: TextDecoration.lineThrough),
+                         )
+                         ),
+
+                       /// Price, show sale price as main price if sale exist.
+                       Padding(
+                        padding: const EdgeInsets.only(left: SiajSizes.sm),
+                        child: SiajProductPriceText(price: controller.getProductPrice(product)),
+                                       ),
+                     ],
+                   ),
+                 ),
 
                 /// Add to cart button
                 Container(
@@ -112,8 +139,7 @@ class SiajProductCardVertical extends StatelessWidget {
                 )
               ],
             )
-          ],
-        ),
+          ]),
       ),
     );
   }

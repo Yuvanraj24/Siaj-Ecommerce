@@ -5,6 +5,7 @@ import 'package:siaj_ecommerce/common/widgets/appbar/appbar.dart';
 import 'package:siaj_ecommerce/common/widgets/icons/siaj_circular_icon.dart';
 import 'package:siaj_ecommerce/common/widgets/layouts/grid_layout.dart';
 import 'package:siaj_ecommerce/common/widgets/products/product_cards/product_card_vertical.dart';
+import 'package:siaj_ecommerce/features/shop/models/product_model.dart';
 import 'package:siaj_ecommerce/features/shop/screens/home/home.dart';
 import 'package:siaj_ecommerce/utils/constants/sizes.dart';
 
@@ -26,7 +27,7 @@ class FavouriteScreen extends StatelessWidget {
             padding: const EdgeInsets.all(SiajSizes.defaultSpace,),
           child: Column(
             children: [
-              SiajGridLayout(itemCount: 4, itemBuilder: (_,index) => const SiajProductCardVertical())
+              SiajGridLayout(itemCount: 4, itemBuilder: (_,index) => SiajProductCardVertical(product: ProductModel.empty()))
             ],
           ),
         ),
