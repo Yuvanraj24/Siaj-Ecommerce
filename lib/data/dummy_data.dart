@@ -1,11 +1,14 @@
 import 'package:siaj_ecommerce/features/authentication/models/user/user_model.dart';
 import 'package:siaj_ecommerce/features/shop/models/banner_model.dart';
+import 'package:siaj_ecommerce/features/shop/models/brand_model.dart';
 import 'package:siaj_ecommerce/features/shop/models/category_model.dart';
+import 'package:siaj_ecommerce/features/shop/models/product_attribute_model.dart';
+import 'package:siaj_ecommerce/features/shop/models/product_model.dart';
+import 'package:siaj_ecommerce/features/shop/models/product_variation_model.dart';
 import 'package:siaj_ecommerce/routes/routes.dart';
 import 'package:siaj_ecommerce/utils/constants/image_strings.dart';
 
 class SiajDummyData {
-
   /// Banners
   static final List<BannerModel> banners = [
     BannerModel(
@@ -134,5 +137,59 @@ class SiajDummyData {
         name: "Mobile",
         parentId: "2",
         isFeatured: false),
+  ];
+
+  /// List of all Brand Categories
+
+  /// List of all Product Categories
+
+  /// List of all Products
+  static final List<ProductModel> products = [
+    ProductModel(
+        id: "001",
+        title: "Green Nike sports shoe",
+        stock: 15,
+        price: 135,
+        isFeatured: true,
+        thumbnail: SiajImages.productImage1,
+        description: "Green Nike sports shoe",
+        brand: BrandModel(
+            id: "1",
+            image: SiajImages.nikeLogo,
+            name: "Nike",
+            productCount: 265,
+            isFeatured: true),
+        images: [
+          SiajImages.productImage1,
+          SiajImages.productImage23,
+          SiajImages.productImage21,
+          SiajImages.productImage9
+        ],
+        salesPrice: 30,
+        sku: "ABR4568",
+        categoryId: "1",
+        productAttributes: [
+          ProductAttributeModel(
+              name: "Color", values: ["Green", "Black", "Red"]),
+          ProductAttributeModel(
+              name: "Size", values: ["EU 30", "EU 32", "EU 34"]),
+        ],
+        productVariations: [
+          ProductVariationModel(
+              id: "1",
+              stock: 14,
+              price: 134,
+              salePrice: 122.6,
+              image: SiajImages.productImage1,
+              description: "This is a Product description for Green Nike sports shoe",
+              attributeValues: {"Color" : "Green", "Size" : "EU 34"}),
+          ProductVariationModel(
+              id: "2",
+              stock: 15,
+              price: 132,
+              image: SiajImages.productImage23,
+              attributeValues: {"Color" : "Black", "Size" : "EU 32"}),
+        ],
+        productType: "ProductType.variable")
   ];
 }
