@@ -191,5 +191,6 @@ class SiajDummyData {
               attributeValues: {"Color" : "Black", "Size" : "EU 32"}),
         ],
         productType: "ProductType.variable")
+
   ];
 }
