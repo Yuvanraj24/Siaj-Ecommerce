@@ -24,8 +24,10 @@ class ProductController extends GetxController {
       isLoading.value = true;
 
       // Fetch products
+      final products = await productRepository.getFeaturedProducts();
 
       // Assign products
+      featuredProducts.assignAll(products);
     } catch (e) {
       SiajLoaders.errorSnackBar(title: "Oh Snap!", message: e.toString());
     } finally {

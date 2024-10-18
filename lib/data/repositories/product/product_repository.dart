@@ -29,6 +29,7 @@ class ProductRepository extends GetxController {
 
   /// Upload dummy data to the Cloud Firebase
   Future<void> uploadProductsDummyData(List<ProductModel> products) async {
+
     try {
       // Upload all the products along with their images
       final storage = Get.put(SiajFirebaseStorageService());
@@ -36,12 +37,10 @@ class ProductRepository extends GetxController {
       // Loop through each category
       for (var product in products) {
         // Get ImageData link from local assets
-        final thumbnail =
-            await storage.getImageDataFromAssets(product.thumbnail);
+        final thumbnail = await storage.getImageDataFromAssets(product.thumbnail);
 
         // Upload Image and Get its URL
-        final url = await storage.uploadImageData(
-            "Products/Images", thumbnail, product.thumbnail.toString());
+        final url = await storage.uploadImageData("Products/Images", thumbnail, product.thumbnail.toString());
 
         // Assign URL to product.thumbnail attribute
         product.thumbnail = url;
@@ -66,11 +65,10 @@ class ProductRepository extends GetxController {
         }
 
         // Upload variation images
-        if (product.productType == ProductType.variables.toString()) {
+        if (product.productType == ProductType.variable.toString()) {
           for (var variation in product.productVariations!) {
             // Get image data link from local assets
-            final assetImage =
-                await storage.getImageDataFromAssets(variation.image);
+            final assetImage = await storage.getImageDataFromAssets(variation.image);
 
             // Upload image and get its URL
             final url = await storage.uploadImageData(
@@ -84,6 +82,7 @@ class ProductRepository extends GetxController {
         // Store Category in Firestore
         await _db.collection("Products").doc(product.id).set(product.toJson());
       }
+
     } on FirebaseException catch (e) {
       throw "${e.code} - FirebaseException : ${e.message}";
     } on PlatformException catch (e) {

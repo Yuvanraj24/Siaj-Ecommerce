@@ -7,7 +7,7 @@ import 'package:siaj_ecommerce/common/widgets/layouts/grid_layout.dart';
 import 'package:siaj_ecommerce/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:siaj_ecommerce/common/widgets/shimmers/vertical_product_shimmer.dart';
 import 'package:siaj_ecommerce/common/widgets/texts/section_heading.dart';
-import 'package:siaj_ecommerce/features/shop/controllers/product_controller.dart';
+import 'package:siaj_ecommerce/features/shop/controllers/product/product_controller.dart';
 import 'package:siaj_ecommerce/features/shop/screens/all_products/all_products.dart';
 
 import 'package:siaj_ecommerce/features/shop/screens/home/widgets/home_appbar.dart';
@@ -82,6 +82,7 @@ class HomeScreen extends StatelessWidget {
               Obx(
                 () {
                   if(controller.isLoading.value) return const SiajVerticalProductShimmer();
+
                   if(controller.featuredProducts.isEmpty) {
                     return Center(child: Text("No Data Found", style: Theme.of(context).textTheme.bodyMedium));
                   }

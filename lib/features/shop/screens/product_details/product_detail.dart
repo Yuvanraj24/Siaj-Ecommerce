@@ -25,17 +25,16 @@ class ProductDetailScreen extends StatelessWidget {
   final ProductModel product;
   @override
   Widget build(BuildContext context) {
-    final darkMode = SiajHelperFunctions.isDarkMode(context);
     return  Scaffold(
-      bottomNavigationBar: SiajBottomAddToCart(),
+      bottomNavigationBar: const SiajBottomAddToCart(),
       body: SingleChildScrollView(
         child: Column(
           children: [
             /// 1. Product Image Slider
-            SiajProductImageSlider(),
+             SiajProductImageSlider(product: product),
 
             /// 2. Product Details
-            Padding(padding: EdgeInsets.only(right: SiajSizes.defaultSpace, left: SiajSizes.defaultSpace, bottom: SiajSizes.defaultSpace),
+            Padding(padding: const EdgeInsets.only(right: SiajSizes.defaultSpace, left: SiajSizes.defaultSpace, bottom: SiajSizes.defaultSpace),
             child: Column(
               children: [
                 /// Rating & Share Button
