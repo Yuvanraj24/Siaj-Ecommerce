@@ -15,6 +15,7 @@ import 'package:siaj_ecommerce/features/shop/screens/product_details/widgets/pro
 import 'package:siaj_ecommerce/features/shop/screens/product_details/widgets/rating_share_widget.dart';
 import 'package:siaj_ecommerce/features/shop/screens/product_reviews/product_reviews.dart';
 import 'package:siaj_ecommerce/utils/constants/colors.dart';
+import 'package:siaj_ecommerce/utils/constants/enums.dart';
 import 'package:siaj_ecommerce/utils/constants/image_strings.dart';
 import 'package:siaj_ecommerce/utils/constants/sizes.dart';
 import 'package:siaj_ecommerce/utils/helpers/helper_function.dart';
@@ -41,12 +42,12 @@ class ProductDetailScreen extends StatelessWidget {
                 const SiajRatingAndShare(),
 
                 /// Price, Title, Stock & Brand
-                const SiajProductMetaData(),
+                 SiajProductMetaData(product: product),
                 const SizedBox(height: SiajSizes.spaceBtwItems ),
 
                 /// Attributes
-                const SiajProductAttributes(),
-                const SizedBox(height: SiajSizes.spaceBtwSections),
+                if(product.productType == ProductType.variable.toString())  SiajProductAttributes(product: product),
+                if(product.productType == ProductType.variable.toString()) const SizedBox(height: SiajSizes.spaceBtwSections),
 
                 /// Checkout Button
                 SizedBox(
@@ -57,7 +58,7 @@ class ProductDetailScreen extends StatelessWidget {
                 /// Description
                 const SiajSectionHeading(title: "Description"),
                 const SizedBox(height: SiajSizes.spaceBtwItems),
-                const ReadMoreText("This is a product description fro Blue Nike Sleeves less vest. There are more things that can be added",
+                 ReadMoreText(product.description ?? "",
                 trimLines: 1,
                   trimMode: TrimMode.Line,
                   trimCollapsedText: " Show more",

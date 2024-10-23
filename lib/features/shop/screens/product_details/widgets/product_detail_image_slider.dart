@@ -15,10 +15,7 @@ import 'package:siaj_ecommerce/utils/constants/sizes.dart';
 import 'package:siaj_ecommerce/utils/helpers/helper_function.dart';
 
 class SiajProductImageSlider extends StatelessWidget {
-  const SiajProductImageSlider({
-    super.key,
-    required this.product
-  });
+  const SiajProductImageSlider({super.key, required this.product});
 
   final ProductModel product;
 
@@ -36,23 +33,24 @@ class SiajProductImageSlider extends StatelessWidget {
         child: Stack(
           children: [
             /// Main Large Image
-             SizedBox(
+            SizedBox(
               height: 400,
               child: Padding(
-                padding:
-                const EdgeInsets.all(SiajSizes.productImageRadius * 2),
+                padding: const EdgeInsets.all(SiajSizes.productImageRadius * 2),
                 child: Center(
-                  child: Obx(
-                    () {
-                      final image = controller.selectedProductImage.value;
-                      return CachedNetworkImage(imageUrl: image,
+                  child: Obx(() {
+                    final image = controller.selectedProductImage.value;
+                    return GestureDetector(
+                      onTap: () => controller.showEnlargedImage(image),
+                      child: CachedNetworkImage(
+                          imageUrl: image,
                           progressIndicatorBuilder: (_, __, downloadProgress) =>
-                       CircularProgressIndicator(
-                        value: downloadProgress.progress,
-                         color: SiajColors.primaryColor,
-                      ));
-                    }
-                  ),
+                              CircularProgressIndicator(
+                                value: downloadProgress.progress,
+                                color: SiajColors.primaryColor,
+                              )),
+                    );
+                  }),
                 ),
               ),
             ),
@@ -72,18 +70,24 @@ class SiajProductImageSlider extends StatelessWidget {
                     width: SiajSizes.spaceBtwItems,
                   ),
                   itemBuilder: (_, index) => Obx(
-                     () {
-                       final imageSelected = controller.selectedProductImage.value == images[index];
-                       return SiajRoundedImage(
-                           width: 80,
-                           backgroundColor:
-                           darkMode ? SiajColors.dark : SiajColors.white,
-                           border: Border.all(color: imageSelected ? SiajColors.primaryColor : Colors.transparent),
-                           padding: const EdgeInsets.all(SiajSizes.sm),
-                           isNetworkImage: true,
-                           onPressed: () => controller.selectedProductImage.value = images[index],
-                           imageUrl: images[index]);
-                     },
+                    () {
+                      final imageSelected =
+                          controller.selectedProductImage.value ==
+                              images[index];
+                      return SiajRoundedImage(
+                          width: 80,
+                          backgroundColor:
+                              darkMode ? SiajColors.dark : SiajColors.white,
+                          border: Border.all(
+                              color: imageSelected
+                                  ? SiajColors.primaryColor
+                                  : Colors.transparent),
+                          padding: const EdgeInsets.all(SiajSizes.sm),
+                          isNetworkImage: true,
+                          onPressed: () => controller
+                              .selectedProductImage.value = images[index],
+                          imageUrl: images[index]);
+                    },
                   ),
                 ),
               ),

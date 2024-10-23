@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:siaj_ecommerce/features/shop/models/product_model.dart';
+import 'package:siaj_ecommerce/utils/constants/colors.dart';
 import 'package:siaj_ecommerce/utils/constants/sizes.dart';
 
 class ImagesController extends GetxController {
@@ -42,7 +43,7 @@ class ImagesController extends GetxController {
     Get.to(fullscreenDialog: true, () => Dialog.fullscreen(
       child: Column(
         children: [
-          Padding(padding: EdgeInsets.symmetric(vertical: SiajSizes.defaultSpace * 2, horizontal: SiajSizes.defaultSpace),
+          Padding(padding: const EdgeInsets.symmetric(vertical: SiajSizes.defaultSpace * 2, horizontal: SiajSizes.defaultSpace),
             child: CachedNetworkImage(imageUrl: image)
           ),
           const SizedBox(height: SiajSizes.spaceBtwSections),
@@ -52,7 +53,7 @@ class ImagesController extends GetxController {
               width: 150,
               child: OutlinedButton(
                 onPressed: () => Get.back(),
-                child: const Text("Close"),
+                child: const Text("Close",style: TextStyle(color: SiajColors.dark),),
               ),
             ),
           )
