@@ -61,4 +61,5 @@ class ImagesController extends GetxController {
       ),
     ));
   }
+
 }

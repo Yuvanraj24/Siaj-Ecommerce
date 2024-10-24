@@ -19,6 +19,8 @@ class SiajChoiceChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bool isColor = SiajHelperFunctions.getColor(text) != null;
+    print("object 11 --> $selected");
+    print("object 12 --> $onSelected");
     return Theme(
       data: Theme.of(context).copyWith(canvasColor: Colors.transparent),
       child: ChoiceChip(

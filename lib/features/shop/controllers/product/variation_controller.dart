@@ -9,8 +9,7 @@ class VariationController extends GetxController {
   /// Variables
   RxMap selectedAttributes = {}.obs;
   RxString variationStockStatus = ''.obs;
-  Rx<ProductVariationModel> selectedVariation =
-      ProductVariationModel.empty().obs;
+  Rx<ProductVariationModel> selectedVariation = ProductVariationModel.empty().obs;
 
   /// Selected Attribute and Variation
   void onAttributeSelected(
@@ -19,18 +18,18 @@ class VariationController extends GetxController {
     final selectedAttributes =
         Map<String, dynamic>.from(this.selectedAttributes);
     selectedAttributes[attributeName] = attributeName;
-    this.selectedAttributes[attributeName] = attributeName;
+    this.selectedAttributes[attributeName] = attributeValue;
 
     final selectedVariation = product.productVariations!.firstWhere(
       (variation) =>
           _isSameAttributeValues(variation.attributeValues, selectedAttributes),
       orElse: () => ProductVariationModel.empty(),
     );
-
+    print("selectedVariation --> ${selectedVariation}");
+    print("selectedVariation.image.isNotEmpty --> ${selectedVariation.image.isNotEmpty}");
     // Show the selected variation image as a Main Image
     if (selectedVariation.image.isNotEmpty) {
-      ImagesController.instance.selectedProductImage.value =
-          selectedVariation.image;
+      ImagesController.instance.selectedProductImage.value = selectedVariation.image;
     }
 
     // Assign Selected Variation
@@ -43,6 +42,8 @@ class VariationController extends GetxController {
   /// Check if selected attributes matches any variation attributes
   bool _isSameAttributeValues(Map<String, dynamic> variationAttributes,
       Map<String, dynamic> selectedAttributes) {
+    print("_isSameAttributeValues - variationAttributes ===> $variationAttributes");
+    print("_isSameAttributeValues - selectedAttributes ===> $selectedAttributes");
     // If selectedAttributes contains 3 attributes and current variation contain 2 then return.
     if (variationAttributes.length != selectedAttributes.length) return false;
 

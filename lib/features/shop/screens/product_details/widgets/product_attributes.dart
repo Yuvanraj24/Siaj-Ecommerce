@@ -91,22 +91,24 @@ class SiajProductAttributes extends StatelessWidget {
                       Obx(
                         () => Wrap(
                             spacing: 8,
-                            children: attribute.values!
-                                .map((attributeValue){
-
-                                  final isSelected = controller.selectedAttributes[attribute.name] == attributeValue;
-                                  final available = controller.getAttributesAvailabilityInVariation(product.productVariations!, attribute.name!).contains(attributeValue);
-
-                                  return SiajChoiceChip(
-                                      text: attributeValue,
-                                      selected: isSelected,
-                                      onSelected: available ? (selected){
-                                        if(selected && available){
-                                          controller.onAttributeSelected(product, attribute.name ?? '', attributeValue);
+                            children: attribute.values!.map((attributeValue) {
+                              final isSelected = controller.selectedAttributes[attribute.name] == attributeValue;
+                              final available = controller.getAttributesAvailabilityInVariation(product.productVariations!, attribute.name!).contains(attributeValue);
+                              return SiajChoiceChip(
+                                  text: attributeValue,
+                                  selected: isSelected,
+                                  onSelected: available
+                                      ? (selected) {
+                                    print("selected => $selected");
+                                    print("available => $available");
+                                          if (selected && available) {
+                                            controller.onAttributeSelected(
+                                                product, attribute.name ?? '',
+                                                attributeValue);
+                                          }
                                         }
-                                      } :null);
-                            })
-                                .toList()),
+                                      : null);
+                            }).toList()),
                       )
                     ],
                   ))
