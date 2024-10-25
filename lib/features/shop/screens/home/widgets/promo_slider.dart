@@ -27,6 +27,7 @@ class SiajPromoSlider extends StatelessWidget {
             children: [
               CarouselSlider(
                   options: CarouselOptions(
+                    autoPlay: true,
                     viewportFraction: 1,
                     onPageChanged: (index, reason) =>
                         controller.updatePageIndicator(index),

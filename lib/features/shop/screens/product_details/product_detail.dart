@@ -2,10 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:readmore/readmore.dart';
-import 'package:siaj_ecommerce/common/widgets/appbar/appbar.dart';
-import 'package:siaj_ecommerce/common/widgets/custom_shapes/curved_edges/curved_edges_widget.dart';
-import 'package:siaj_ecommerce/common/widgets/icons/siaj_circular_icon.dart';
-import 'package:siaj_ecommerce/common/widgets/images/siaj_rounded_image.dart';
 import 'package:siaj_ecommerce/common/widgets/texts/section_heading.dart';
 import 'package:siaj_ecommerce/features/shop/models/product_model.dart';
 import 'package:siaj_ecommerce/features/shop/screens/product_details/widgets/bottom_add_to_cart_widget.dart';
@@ -14,11 +10,8 @@ import 'package:siaj_ecommerce/features/shop/screens/product_details/widgets/pro
 import 'package:siaj_ecommerce/features/shop/screens/product_details/widgets/product_attributes.dart';
 import 'package:siaj_ecommerce/features/shop/screens/product_details/widgets/rating_share_widget.dart';
 import 'package:siaj_ecommerce/features/shop/screens/product_reviews/product_reviews.dart';
-import 'package:siaj_ecommerce/utils/constants/colors.dart';
 import 'package:siaj_ecommerce/utils/constants/enums.dart';
-import 'package:siaj_ecommerce/utils/constants/image_strings.dart';
 import 'package:siaj_ecommerce/utils/constants/sizes.dart';
-import 'package:siaj_ecommerce/utils/helpers/helper_function.dart';
 
 class ProductDetailScreen extends StatelessWidget {
   const ProductDetailScreen({super.key, required this.product});
@@ -64,9 +57,8 @@ class ProductDetailScreen extends StatelessWidget {
                   trimCollapsedText: " Show more",
                   trimExpandedText: " Less",
                   moreStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
-                  lessStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
+                  lessStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
                 ),
-
 
                 /// Reviews
                 const Divider(),
@@ -79,8 +71,7 @@ class ProductDetailScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: SiajSizes.spaceBtwSections),
 
-              ],
-            ),
+              ]),
 
             )
           ],

@@ -55,6 +55,7 @@ class SiajProductCardVertical extends StatelessWidget {
                    ),
       
                   /// Sale Tag
+                  if(salePercentage != null)
                   Positioned(
                     top: 12,
                     child: SiajRoundedContainer(

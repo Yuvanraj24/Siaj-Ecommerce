@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:siaj_ecommerce/common/widgets/brands/brand_card.dart';
 import 'package:siaj_ecommerce/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:siaj_ecommerce/features/shop/models/brand_model.dart';
 import 'package:siaj_ecommerce/utils/constants/colors.dart';
 import 'package:siaj_ecommerce/utils/constants/image_strings.dart';
 import 'package:siaj_ecommerce/utils/constants/sizes.dart';
@@ -24,7 +25,7 @@ class SiajBrandShowcase extends StatelessWidget {
       child: Column(
         children: [
           /// Brand with Product Count
-          const SiajBrandCard(showBorder: false),
+           SiajBrandCard(showBorder: false, brand: BrandModel.empty(),),
           const SizedBox(height: SiajSizes.spaceBtwItems),
 
           /// Brand Top 3 Product Images

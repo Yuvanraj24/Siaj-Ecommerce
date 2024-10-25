@@ -25,8 +25,7 @@ class VariationController extends GetxController {
           _isSameAttributeValues(variation.attributeValues, selectedAttributes),
       orElse: () => ProductVariationModel.empty(),
     );
-    print("selectedVariation --> ${selectedVariation}");
-    print("selectedVariation.image.isNotEmpty --> ${selectedVariation.image.isNotEmpty}");
+
     // Show the selected variation image as a Main Image
     if (selectedVariation.image.isNotEmpty) {
       ImagesController.instance.selectedProductImage.value = selectedVariation.image;
@@ -42,8 +41,7 @@ class VariationController extends GetxController {
   /// Check if selected attributes matches any variation attributes
   bool _isSameAttributeValues(Map<String, dynamic> variationAttributes,
       Map<String, dynamic> selectedAttributes) {
-    print("_isSameAttributeValues - variationAttributes ===> $variationAttributes");
-    print("_isSameAttributeValues - selectedAttributes ===> $selectedAttributes");
+
     // If selectedAttributes contains 3 attributes and current variation contain 2 then return.
     if (variationAttributes.length != selectedAttributes.length) return false;
 
@@ -68,6 +66,10 @@ class VariationController extends GetxController {
         .map((variation) =>variation.attributeValues[attributeName])
         .toSet();
     return availableVariationAttributeValues;
+  }
+
+  String getVariationPrice(){
+    return (selectedVariation.value.salePrice > 0 ? selectedVariation.value.salePrice : selectedVariation.value.price).toString();
   }
 
   /// Check Product Variation Stock Status

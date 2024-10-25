@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -25,48 +26,52 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(children: [
+
           /// Header
           const SiajPrimaryHeaderContainer(
               child: Column(
-            children: [
-              /// Appbar
-              SiajHomeAppBar(),
+                children: [
 
-              SizedBox(height: SiajSizes.spaceBtwSections),
+                  /// Appbar
+                  SiajHomeAppBar(),
 
-              /// Searchbar
-              SiajSearchContainer(
-                text: "Search in store",
-              ),
+                  SizedBox(height: SiajSizes.spaceBtwSections),
 
-              SizedBox(height: SiajSizes.spaceBtwSections),
-
-              /// Categories
-              Padding   (
-                padding: EdgeInsets.only(left: SiajSizes.defaultSpace),
-                child: Column(children: [
-                  /// Heading
-                  SiajSectionHeading(
-                      title: 'Popular Categories',
-                      showActionButton: false,
-                      textColor: SiajColors.white),
-                  SizedBox(
-                    height: SiajSizes.spaceBtwItems,
+                  /// Searchbar
+                  SiajSearchContainer(
+                    text: "Search in store",
                   ),
 
-                  /// Categories list
-                  SiajHomeCategories(),
-                ]),
-              ),
+                  SizedBox(height: SiajSizes.spaceBtwSections),
 
-              SizedBox(height: SiajSizes.spaceBtwSections)
-            ],
-          )),
+                  /// Categories
+                  Padding(
+                    padding: EdgeInsets.only(left: SiajSizes.defaultSpace),
+                    child: Column(children: [
+
+                      /// Heading
+                      SiajSectionHeading(
+                          title: 'Popular Categories',
+                          showActionButton: false,
+                          textColor: SiajColors.white),
+                      SizedBox(
+                        height: SiajSizes.spaceBtwItems,
+                      ),
+
+                      /// Categories list
+                      SiajHomeCategories(),
+                    ]),
+                  ),
+
+                  SizedBox(height: SiajSizes.spaceBtwSections)
+                ],
+              )),
 
           /// Body
           Padding(
             padding: const EdgeInsets.all(SiajSizes.defaultSpace),
             child: Column(children: [
+
               /// Promo Slider
               const SiajPromoSlider(),
               const SizedBox(height: SiajSizes.spaceBtwSections),
@@ -74,23 +79,32 @@ class HomeScreen extends StatelessWidget {
               /// Heading
               SiajSectionHeading(
                 title: "Popular Products",
-                onPressed: () => Get.to(() => const AllProducts()),
+                onPressed: () => Get.to(() => AllProducts(
+                  title: 'Popular Products',
+                  futureMethod: controller.fetchAllFeaturedProducts(),
+                )),
               ),
               const SizedBox(height: SiajSizes.spaceBtwItems),
 
               /// Popular Products
               Obx(
-                () {
-                  if(controller.isLoading.value) return const SiajVerticalProductShimmer();
+                      () {
+                    if (controller.isLoading.value)
+                      return const SiajVerticalProductShimmer();
 
-                  if(controller.featuredProducts.isEmpty) {
-                    return Center(child: Text("No Data Found", style: Theme.of(context).textTheme.bodyMedium));
+                    if (controller.featuredProducts.isEmpty) {
+                      return Center(child: Text("No Data Found", style: Theme
+                          .of(context)
+                          .textTheme
+                          .bodyMedium));
+                    }
+                    return SiajGridLayout(
+                      itemCount: controller.featuredProducts.length,
+                      itemBuilder: (_, index) =>
+                          SiajProductCardVertical(product: controller
+                              .featuredProducts[index]),
+                    );
                   }
-                  return SiajGridLayout(
-                    itemCount: controller.featuredProducts.length,
-                    itemBuilder: (_, index) =>  SiajProductCardVertical(product: controller.featuredProducts[index]),
-                  );
-                }
               ),
             ]),
           )
