@@ -6,7 +6,6 @@ import 'package:siaj_ecommerce/common/widgets/layouts/grid_layout.dart';
 import 'package:siaj_ecommerce/common/widgets/shimmers/brand_shimmer.dart';
 import 'package:siaj_ecommerce/common/widgets/texts/section_heading.dart';
 import 'package:siaj_ecommerce/features/shop/controllers/brand_controller.dart';
-import 'package:siaj_ecommerce/features/shop/models/brand_model.dart';
 import 'package:siaj_ecommerce/features/shop/screens/brand/brand_products.dart';
 import 'package:siaj_ecommerce/utils/constants/sizes.dart';
 
