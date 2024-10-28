@@ -28,7 +28,7 @@ class AllBrandsScreen extends StatelessWidget {
         child: Column(
           children: [
             /// Heading
-            const SiajSectionHeading(title: "Brands"),
+            const SiajSectionHeading(title: "Brands",showActionButton: false),
             const SizedBox(height: SiajSizes.spaceBtwItems),
 
             /// Brands GRID
@@ -39,10 +39,10 @@ class AllBrandsScreen extends StatelessWidget {
                   return Center(child: Text("No Data Found!", style: Theme.of(context).textTheme.bodyMedium!.apply(color: Colors.white)));
                 }
                 return SiajGridLayout(
-                  itemCount: brandController.featuredBrands.length,
+                  itemCount: brandController.allBrands.length,
                   mainAxisExtent: 80,
                   itemBuilder: (_, index) {
-                    final brand = brandController.featuredBrands[index];
+                    final brand = brandController.allBrands[index];
                     return  SiajBrandCard(showBorder: false, brand: brand,
                     onTap: () => Get.to(() => BrandProducts(brand: brand)),);
                   },

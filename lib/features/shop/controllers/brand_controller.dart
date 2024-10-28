@@ -32,7 +32,7 @@ class BrandController extends GetxController {
       featuredBrands.assignAll(allBrands.where((brand) => brand.isFeatured ?? false).take(4));
 
     } catch (e) {
-      SiajLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
+      SiajLoaders.errorSnackBar(title: 'Oh Snap! on getFeaturedBrands', message: e.toString());
     } finally {
       isLoading.value = false;
     }

@@ -8,6 +8,7 @@ import 'package:siaj_ecommerce/common/widgets/list_tiles/user_profile_tile.dart'
 import 'package:siaj_ecommerce/common/widgets/texts/section_heading.dart';
 import 'package:siaj_ecommerce/data/dummy_data.dart';
 import 'package:siaj_ecommerce/data/repositories/banners/banner_repository.dart';
+import 'package:siaj_ecommerce/data/repositories/brands/brand_repository.dart';
 import 'package:siaj_ecommerce/data/repositories/categories/category_repository.dart';
 import 'package:siaj_ecommerce/data/repositories/product/product_repository.dart';
 import 'package:siaj_ecommerce/features/personalization/screens/address/address.dart';
@@ -24,6 +25,7 @@ class SettingsScreen extends StatelessWidget {
     final categoryRepo = Get.put(CategoryRepository());
     final bannerRepo = Get.put(BannerRepository());
     final productRepo = Get.put(ProductRepository());
+    final brandRepo = Get.put(BrandRepository());
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -96,7 +98,7 @@ class SettingsScreen extends StatelessWidget {
                       title: "App Settings", showActionButton: false),
                   const SizedBox(height: SiajSizes.spaceBtwItems),
                    SiajSettingsMenuTile(
-                      onTap: () => productRepo.uploadProductsDummyData(SiajDummyData.products),
+                      onTap: () => brandRepo.uploadBannerDummyData(SiajDummyData.brands),
                       icon: Iconsax.document_upload,
                       title: "Load Data",
                       subTitle: "Upload Data to your Cloud Firebase"),

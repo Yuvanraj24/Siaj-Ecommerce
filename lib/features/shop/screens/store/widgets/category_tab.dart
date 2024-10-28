@@ -39,13 +39,11 @@ class SiajCategoryTab extends StatelessWidget {
                 onPressed: () {},
               ),
               const SizedBox(height: SiajSizes.spaceBtwItems),
-
               SiajGridLayout(
                   itemCount: 4,
                   itemBuilder: (_, index) => SiajProductCardVertical(product: ProductModel.empty())),
               const SizedBox(height: SiajSizes.spaceBtwSections)
-            ],
-          ),
+            ]),
         ),
       ],
     );

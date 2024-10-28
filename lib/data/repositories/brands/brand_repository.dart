@@ -13,8 +13,11 @@ class BrandRepository extends GetxController {
   /// Get all categories
   Future<List<BrandModel>> getAllBrands() async {
     try{
+      print("get all brands called");
       final snapshot = await _db.collection('Brands').get();
+      print("Result of get brands $snapshot");
       final result = snapshot.docs.map((e) => BrandModel.fromSnapshot(e)).toList();
+      print("Result of get brands $result");
       return result;
 
     } on FirebaseException catch (e) {
@@ -33,6 +36,7 @@ class BrandRepository extends GetxController {
   /// Upload Brands to the Cloud Firebase
   Future<void> uploadBannerDummyData(List<BrandModel> brands) async {
     try{
+      print("Upload Start");
       // Upload all the Categories along with their Images
       final storage = Get.put(SiajFirebaseStorageService());
       // Loop through each category
@@ -41,13 +45,14 @@ class BrandRepository extends GetxController {
         final file = await storage.getImageDataFromAssets(brand.image);
 
         // Upload Image and Get its URL
-        final url = await storage.uploadImageData("Banners", file, "brand_${brands.indexOf(brand)}");
+        final url = await storage.uploadImageData("Brands", file, "brand_${brands.indexOf(brand)}");
 
         // Assign URL to Category.image attribute
         brand.image = url;
 
         // Store Category in Firestore
-        await _db.collection("Banners").doc().set(brand.toJson());
+        await _db.collection("Brands").doc().set(brand.toJson());
+        print("Upload Completed");
 
       }
 

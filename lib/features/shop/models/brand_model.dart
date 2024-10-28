@@ -50,7 +50,7 @@ class BrandModel {
           image: data["image"] ?? "",
           name: data["name"] ?? "",
           isFeatured: data["isFeatured"] ?? false,
-          productCount: data["productCount"] ?? ''
+          productCount: data["productCount"] ?? 0
       );
     } else {
       return BrandModel.empty();

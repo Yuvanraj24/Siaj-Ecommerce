@@ -139,7 +139,31 @@ class SiajDummyData {
         isFeatured: false),
   ];
 
+
+  static const String nikeLogo = "assets/icons/brands/nike.png";
+  static const String adidasLogo = "assets/icons/brands/adidas-logo.png";
+  static const String appleLogo = "assets/icons/brands/apple-logo.png";
+  static const String jordanLogo = "assets/icons/brands/jordan-logo.png";
+  static const String pumaLogo = "assets/icons/brands/puma-logo.png";
+  static const String zaraLogo = "assets/icons/brands/zara-logo.png";
+  static const String kenwoodLogo = "assets/icons/brands/kenwood-logo.png";
+  static const String hermanMillerLogo = "assets/icons/brands/herman-miller-logo.png";
+  static const String ikeaLogo = "assets/icons/brands/ikea_logo.png";
+  static const String acerlogo = "assets/icons/brands/acer_logo.png";
+
   /// List of all Brand Categories
+  static final List<BrandModel> brands = [
+    BrandModel(id: '1', image: SiajImages.nikeLogo, name: "Nike",isFeatured: true, productCount: 50),
+    BrandModel(id: '2', image: SiajImages.adidasLogo, name: "Adidas"),
+    BrandModel(id: '3', image: SiajImages.appleLogo, name: "Apple"),
+    BrandModel(id: '4', image: SiajImages.jordanLogo, name: "Jordan"),
+    BrandModel(id: '5', image: SiajImages.pumaLogo, name: "Puma",isFeatured: true, productCount: 22),
+    BrandModel(id: '5', image: SiajImages.zaraLogo, name: "Zara",isFeatured: true, productCount: 22),
+    BrandModel(id: '4', image: SiajImages.kenwoodLogo, name: "Key Wood"),
+    BrandModel(id: '4', image: SiajImages.hermanMillerLogo, name: "Herman Miller"),
+    BrandModel(id: '4', image: SiajImages.ikeaLogo, name: "ikea"),
+    BrandModel(id: '4', image: SiajImages.acerlogo, name: "acer"),
+  ];
 
   /// List of all Product Categories
 
