@@ -27,7 +27,6 @@ class BrandProducts extends StatelessWidget {
             /// Brand detail
             SiajBrandCard(showBorder: true, brand: brand),
             const SizedBox(height: SiajSizes.spaceBtwSections),
-
             FutureBuilder(
               future: brandController.getBrandProducts(brand.id),
               builder: (context, snapshot) {
@@ -42,9 +41,7 @@ class BrandProducts extends StatelessWidget {
                 return  SiajSortableProducts(products: brandProducts);
               }
             ),
-
-          ],
-        ),
+          ]),
 
         ),
       ),
