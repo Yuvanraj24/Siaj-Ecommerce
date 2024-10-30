@@ -28,26 +28,37 @@ class BrandController extends GetxController {
       final brands = await brandRepository.getAllBrands();
 
       allBrands.assignAll(brands);
-      
-      featuredBrands.assignAll(allBrands.where((brand) => brand.isFeatured ?? false).take(4));
 
+      featuredBrands.assignAll(
+          allBrands.where((brand) => brand.isFeatured ?? false).take(4));
     } catch (e) {
-      SiajLoaders.errorSnackBar(title: 'Oh Snap! on getFeaturedBrands', message: e.toString());
+      SiajLoaders.errorSnackBar(
+          title: 'Oh Snap! on getFeaturedBrands', message: e.toString());
     } finally {
       isLoading.value = false;
     }
   }
 
-/// Get Brands for category
-
-/// Get Brand specific products from your data source
-    Future<List<ProductModel>> getBrandProducts(String brandId) async {
-      try {
-        final products = await ProductRepository.instance.getProductsFromBrand( brandId: brandId);
-        return products;
-      } catch(e) {
-        SiajLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
-        return [];
-      }
+  /// Get Brands for category
+  Future<List<BrandModel>> getBrandsForCategory(String categoryId) async {
+    try {
+      final brands = await brandRepository.getBrandsForCategory(categoryId);
+      return brands;
+    } catch (e) {
+      SiajLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
+      return [];
     }
+  }
+
+  /// Get Brand specific products from your data source
+  Future<List<ProductModel>> getBrandProducts(String brandId) async {
+    try {
+      final products = await ProductRepository.instance
+          .getProductsFromBrand(brandId: brandId);
+      return products;
+    } catch (e) {
+      SiajLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
+      return [];
+    }
+  }
 }

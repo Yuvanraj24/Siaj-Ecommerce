@@ -11,29 +11,33 @@ class SiajBrandShowcase extends StatelessWidget {
   const SiajBrandShowcase({
     super.key,
     required this.images,
+    required this.brand,
   });
 
+  final BrandModel brand;
   final List<String> images;
 
   @override
   Widget build(BuildContext context) {
-    return SiajRoundedContainer(
-      showBorder: true,
-      borderColor: SiajColors.darkGrey,
-      backgroundColor: Colors.transparent,
-      margin: const EdgeInsets.only(bottom: SiajSizes.spaceBtwItems),
-      child: Column(
-        children: [
-          /// Brand with Product Count
-           SiajBrandCard(showBorder: false, brand: BrandModel.empty(),),
-          const SizedBox(height: SiajSizes.spaceBtwItems),
-
-          /// Brand Top 3 Product Images
-          Row(
-              children: images
-                  .map((image) => brandTopProductImageWidget(image, context))
-                  .toList())
-        ],
+    return InkWell(
+      child: SiajRoundedContainer(
+        showBorder: true,
+        borderColor: SiajColors.darkGrey,
+        backgroundColor: Colors.transparent,
+        margin: const EdgeInsets.only(bottom: SiajSizes.spaceBtwItems),
+        child: Column(
+          children: [
+            /// Brand with Product Count
+            SiajBrandCard(showBorder: false, brand: brand),
+            const SizedBox(height: SiajSizes.spaceBtwItems),
+      
+            /// Brand Top 3 Product Images
+            Row(
+                children: images
+                    .map((image) => brandTopProductImageWidget(image, context))
+                    .toList())
+          ],
+        ),
       ),
     );
   }
@@ -47,8 +51,7 @@ class SiajBrandShowcase extends StatelessWidget {
             : SiajColors.light,
         margin: const EdgeInsets.only(right: SiajSizes.sm),
         padding: const EdgeInsets.all(SiajSizes.md),
-        child:  Image(
-            fit: BoxFit.contain, image: AssetImage(image)),
+        child: Image(fit: BoxFit.contain, image: AssetImage(image)),
       ),
     );
   }

@@ -5,6 +5,7 @@ import 'package:siaj_ecommerce/common/widgets/products/product_cards/product_car
 import 'package:siaj_ecommerce/common/widgets/texts/section_heading.dart';
 import 'package:siaj_ecommerce/features/shop/models/category_model.dart';
 import 'package:siaj_ecommerce/features/shop/models/product_model.dart';
+import 'package:siaj_ecommerce/features/shop/screens/store/widgets/category_brands.dart';
 import 'package:siaj_ecommerce/utils/constants/image_strings.dart';
 import 'package:siaj_ecommerce/utils/constants/sizes.dart';
 
@@ -24,13 +25,7 @@ class SiajCategoryTab extends StatelessWidget {
           child: Column(
             children: [
               /// Brands
-              const SiajBrandShowcase(
-                images: [
-                  SiajImages.productImage1,
-                  SiajImages.productImage2,
-                  SiajImages.productImage3,
-                ],
-              ),
+              CategoryBrands(category: category),
               const SizedBox(height: SiajSizes.spaceBtwItems),
 
               /// Products

@@ -14,6 +14,6 @@ class BrandCategoryModel {
     final data = snapshot.data() as Map<String, dynamic>;
 
     return BrandCategoryModel(
-        brandId: data['brandId'] ?? '', categoryId: data['categoryId'] ?? '');
+        brandId: data['brandId'] as String, categoryId: data['categoryId'] as String);
   }
 }
