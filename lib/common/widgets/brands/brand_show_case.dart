@@ -1,7 +1,11 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:siaj_ecommerce/common/widgets/brands/brand_card.dart';
 import 'package:siaj_ecommerce/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:siaj_ecommerce/common/widgets/shimmers/shimmer_effect.dart';
 import 'package:siaj_ecommerce/features/shop/models/brand_model.dart';
+import 'package:siaj_ecommerce/features/shop/screens/brand/brand_products.dart';
 import 'package:siaj_ecommerce/utils/constants/colors.dart';
 import 'package:siaj_ecommerce/utils/constants/image_strings.dart';
 import 'package:siaj_ecommerce/utils/constants/sizes.dart';
@@ -20,6 +24,7 @@ class SiajBrandShowcase extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      onTap: () => Get.to(() => BrandProducts(brand: brand)),
       child: SiajRoundedContainer(
         showBorder: true,
         borderColor: SiajColors.darkGrey,
@@ -51,7 +56,12 @@ class SiajBrandShowcase extends StatelessWidget {
             : SiajColors.light,
         margin: const EdgeInsets.only(right: SiajSizes.sm),
         padding: const EdgeInsets.all(SiajSizes.md),
-        child: Image(fit: BoxFit.contain, image: AssetImage(image)),
+        child: CachedNetworkImage(
+          fit: BoxFit.contain,
+          imageUrl: image,
+          progressIndicatorBuilder: (context, url, progress) => SiajShimmerEffect(width: 100, height: 100),
+          errorWidget: (context, url, error) => Icon(Icons.error),
+        )
       ),
     );
   }

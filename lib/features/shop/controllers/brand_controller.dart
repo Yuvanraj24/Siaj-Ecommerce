@@ -51,10 +51,10 @@ class BrandController extends GetxController {
   }
 
   /// Get Brand specific products from your data source
-  Future<List<ProductModel>> getBrandProducts(String brandId) async {
+  Future<List<ProductModel>> getBrandProducts({required String brandId,int limit = -1}) async {
     try {
       final products = await ProductRepository.instance
-          .getProductsFromBrand(brandId: brandId);
+          .getProductsForBrand(brandId: brandId,limit: limit);
       return products;
     } catch (e) {
       SiajLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
