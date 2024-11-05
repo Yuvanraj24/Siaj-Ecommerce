@@ -34,18 +34,24 @@ class BrandRepository extends GetxController {
 /// Get Brands for category
   Future<List<BrandModel>> getBrandsForCategory(String categoryId) async {
     try{
+
+      print("cate id ---> $categoryId");
       // Query to get all documents where categoryId matches the provided categoryId
       QuerySnapshot brandCategoryQuery = await _db.collection('BrandCategory').where('categoryId', isEqualTo: categoryId).get();
+      print('Pass 1');
 
       // Extract brandIds from the documents
       List<String> brandIds = brandCategoryQuery.docs.map((doc) => doc['brandId'] as String).toList();
-
+      print('Pass 2');
       // Query to get all document where the brandId is in the list of brandIds, FilePath.documentId to query documents in Collection
-      final brandsQuery = await _db.collection('Brands').where(FieldPath.documentId, whereIn: brandIds).limit(2).get();
+      print("brand ids ---> ${brandIds}");
+      print("FieldPath.documentId ---> ${FieldPath.documentId}");
 
+      final brandsQuery = await _db.collection('Brands').where(FieldPath.documentId, whereIn: brandIds).limit(2).get();
+      print('Pass 3');
       // Extract brand names or other relevant data from the documents
       List<BrandModel> brands = brandsQuery.docs.map((doc) => BrandModel.fromSnapshot(doc)).toList();
-
+      print('Pass 4');
       return brands;
 
 

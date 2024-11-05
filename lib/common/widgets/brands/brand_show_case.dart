@@ -38,12 +38,8 @@ class SiajBrandShowcase extends StatelessWidget {
       
             /// Brand Top 3 Product Images
             Row(
-                children: images
-                    .map((image) => brandTopProductImageWidget(image, context))
-                    .toList())
-          ],
-        ),
-      ),
+                children: images.map((image) => brandTopProductImageWidget(image, context)).toList())
+          ]))
     );
   }
 
@@ -59,8 +55,8 @@ class SiajBrandShowcase extends StatelessWidget {
         child: CachedNetworkImage(
           fit: BoxFit.contain,
           imageUrl: image,
-          progressIndicatorBuilder: (context, url, progress) => SiajShimmerEffect(width: 100, height: 100),
-          errorWidget: (context, url, error) => Icon(Icons.error),
+          progressIndicatorBuilder: (context, url, progress) => const SiajShimmerEffect(width: 100, height: 100),
+          errorWidget: (context, url, error) => const Icon(Icons.error),
         )
       ),
     );

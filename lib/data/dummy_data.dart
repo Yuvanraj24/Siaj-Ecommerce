@@ -151,7 +151,7 @@ class SiajDummyData {
   static const String ikeaLogo = "assets/icons/brands/ikea_logo.png";
   static const String acerlogo = "assets/icons/brands/acer_logo.png";
 
-  /// List of all Brand Categories
+  /// List of all Brand
   static final List<BrandModel> brands = [
     BrandModel(id: '1', image: SiajImages.nikeLogo, name: "Nike",isFeatured: true, productCount: 50),
     BrandModel(id: '2', image: SiajImages.adidasLogo, name: "Adidas"),
@@ -166,6 +166,7 @@ class SiajDummyData {
   ];
 
   /// List of all Product Categories
+  /// List of all Brand Categories
 
   /// List of all Products
   static final List<ProductModel> products = [

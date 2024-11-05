@@ -98,17 +98,14 @@ class StoreScreen extends StatelessWidget {
 
                   /// Tabs
                   bottom: SiajTabBar(
-                      tabs: categories
-                          .map((category) => Tab(child: Text(category.name)))
-                          .toList()),
+                      tabs: categories.map((category) => Tab(child: Text(category.name))).toList()),
                 )
               ];
             },
 
             /// Body
             body: TabBarView(
-                children: categories
-                    .map((category) => SiajCategoryTab(category: category))
+                children: categories.map((category) => SiajCategoryTab(category: category))
                     .toList())),
       ),
     );

@@ -42,10 +42,11 @@ class BrandController extends GetxController {
   /// Get Brands for category
   Future<List<BrandModel>> getBrandsForCategory(String categoryId) async {
     try {
+      print("Category id on getBrandsForCategory ---> $categoryId");
       final brands = await brandRepository.getBrandsForCategory(categoryId);
       return brands;
     } catch (e) {
-      SiajLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
+      SiajLoaders.errorSnackBar(title: 'Oh Snap! 1', message: e.toString());
       return [];
     }
   }
@@ -57,7 +58,7 @@ class BrandController extends GetxController {
           .getProductsForBrand(brandId: brandId,limit: limit);
       return products;
     } catch (e) {
-      SiajLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
+      SiajLoaders.errorSnackBar(title: 'Oh Snap! 1', message: e.toString());
       return [];
     }
   }
