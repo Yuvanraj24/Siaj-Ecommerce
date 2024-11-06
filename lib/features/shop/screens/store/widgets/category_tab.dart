@@ -33,7 +33,6 @@ class SiajCategoryTab extends StatelessWidget {
             /// Brands
             CategoryBrands(category: category),
             const SizedBox(height: SiajSizes.spaceBtwItems),
-
             /// Products
             FutureBuilder(
               future: controller.getCategoryProducts(categoryId: category.id),
@@ -63,7 +62,6 @@ class SiajCategoryTab extends StatelessWidget {
                 );
               }
             ),
-
             // const SizedBox(height: SiajSizes.spaceBtwSections)
           ]),
         ),
