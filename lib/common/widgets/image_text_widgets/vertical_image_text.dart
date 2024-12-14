@@ -32,22 +32,6 @@ class SiajVerticalImageText extends StatelessWidget {
         child: Column(
           children: [
             /// Circular Icon
-            // Container(
-            //   width: 56,
-            //   height: 56,
-            //   padding: const EdgeInsets.all(SiajSizes.sm),
-            //   decoration: BoxDecoration(
-            //       color: backgroundColor ??
-            //           (dark ? SiajColors.black : SiajColors.white),
-            //       borderRadius: BorderRadius.circular(100)),
-            //   child: Center(
-            //     child: Image(
-            //       image: AssetImage(image),
-            //       fit: BoxFit.cover,
-            //       color: dark ? SiajColors.light : SiajColors.dark,
-            //     ),
-            //   ),
-            // ),
             SiajCircularImage(
               isNetworkImage: isNetworkImage,
               fit: BoxFit.fitWidth,

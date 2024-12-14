@@ -1,6 +1,6 @@
 // routes
 
-class SiajRoutes {
+class   SiajRoutes {
   static const home = '/';
   static const store = '/store';
   static const favourites = '/favourites';

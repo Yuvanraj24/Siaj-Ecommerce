@@ -51,8 +51,7 @@ class SiajCircularImage extends StatelessWidget {
             image: AssetImage(image) as ImageProvider,
             color: overlayColor,
           ),
-        ),
-      ),
-    );
+        )
+      ));
   }
 }
