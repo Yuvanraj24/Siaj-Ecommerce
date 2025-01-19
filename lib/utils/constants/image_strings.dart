@@ -77,8 +77,7 @@ class SiajImages {
       "assets/images/animations/72785-searching.json";
   static String securityAnimation =
       "assets/images/animations/67263-security-icon-transparent.json";
-  static String successfullyRegisterAnimation =
-      "assets/images/animations/72462-check-register.json";
+  static String successfullyRegisterAnimation = "assets/images/animations/72462-check-register.json";
   static String thankYouAnimation =
       "assets/images/animations/72462-check-register.json";
   static String paymentSuccessfulAnimation =

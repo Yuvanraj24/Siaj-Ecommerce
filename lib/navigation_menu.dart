@@ -30,8 +30,7 @@ class NavigationMenu extends StatelessWidget {
               NavigationDestination(icon: Icon(Iconsax.shop), label: "Store"),
               NavigationDestination(icon: Icon(Iconsax.heart), label: "Wishlist"),
               NavigationDestination(icon: Icon(Iconsax.user), label: "Profile"),
-            ]),
-
+            ])
       ),
       body: Obx(() => navigationController.screens[navigationController.selectedIndex.value]),
     );
